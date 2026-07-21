@@ -901,6 +901,25 @@
     margin-bottom: 0; /* Menghapus dorongan ruang kosong ke bawah */
     line-height: 1.35;
   }
+  /* ── TWO-COLUMN TIMELINE UNTUK PC ─────────────────────────────── */
+  @media (min-width: 901px) {
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 2.5rem; /* Jarak vertikal dan horizontal antar item */
+      border-left: none; /* Menghilangkan garis vertikal utama */
+      padding-left: 0;
+    }
+    .timeline-item {
+      margin-bottom: 0 !important; /* Reset margin bawaan */
+      border-left: 2px solid var(--border); /* Pindahkan garis ke masing-masing item */
+      padding-left: 24px;
+    }
+    .timeline-item::before {
+      left: -8px; /* Menyesuaikan posisi titik (dot) agar pas di tengah garis baru */
+    }
+  }
+  
 </style>
 </head>
 <body>
