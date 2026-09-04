@@ -904,6 +904,23 @@
     margin-bottom: 0; /* Menghapus dorongan ruang kosong ke bawah */
     line-height: 1.35;
   }
+  #cert-grid .doc-body .btn-demo {
+    display: inline-block;
+    align-self: flex-start;
+    flex: none;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  #cert-grid .doc-body .btn-demo:hover {
+    background: var(--bg-alt);
+    color: var(--navy-deep);
+    box-shadow: none;
+  }
   /* ── TWO-COLUMN TIMELINE UNTUK PC ─────────────────────────────── */
   @media (min-width: 901px) {
     .timeline {
@@ -1794,8 +1811,8 @@
     
     <!-- Filter Tabs -->
     <div class="tab-row" id="cert-tabs">
-      <button class="tab-btn active" data-cat="all"><span class="t-id">Semua</span><span class="t-en">All</span> <span class="tab-count">33</span></button>
-      <button class="tab-btn" data-cat="gis">GIS &amp; Geomatics <span class="tab-count">7</span></button>
+      <button class="tab-btn active" data-cat="all"><span class="t-id">Semua</span><span class="t-en">All</span> <span class="tab-count">36</span></button>
+      <button class="tab-btn" data-cat="gis">GIS &amp; Geomatics <span class="tab-count">10</span></button>
       <button class="tab-btn" data-cat="training"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span> <span class="tab-count">10</span></button>
       <button class="tab-btn" data-cat="webinar"><span class="t-id">Webinar &amp; Kuliah Tamu</span><span class="t-en">Webinars &amp; Guest Lectures</span> <span class="tab-count">8</span></button>
       <button class="tab-btn" data-cat="org"><span class="t-id">Organisasi &amp; Panitia</span><span class="t-en">Organizations &amp; Committees</span> <span class="tab-count">4</span></button>
@@ -1806,11 +1823,22 @@
     <div class="doc-grid" id="cert-grid">
 
       <!-- ================= GIS & GEOMATICS (gis) ================= -->
+      <div class="doc-card animate-in" data-cat="gis">
+        <div class="doc-thumb"><img src="images/Sertif/Lisensi Remote Pilot Certificate (RPC).webp" alt="Remote Pilot Certificate" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-body">
+          <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
+          <h3><span class="t-id">Lisensi Remote Pilot Certificate (RPC) - Pesawat Udara Kecil Tanpa Awak</span><span class="t-en">Remote Pilot Certificate (RPC) - Small Unmanned Aircraft</span></h3>
+          <p><span class="t-id">Kementerian Perhubungan RI - Direktorat Jenderal Perhubungan Udara &bull; Skor 83.33<br>Masa Berlaku Agustus 2026 - Agustus 2027</span><span class="t-en">Ministry of Transportation of the Republic of Indonesia - Directorate General of Civil Aviation &bull; Score 83.33<br>Validity Period August 2026 - August 2027</span></p>
+          <a href="https://imsis-djpu.kemenhub.go.id/QRVerificator/RPCQR?id=MjM4Zjk2NjExMzg5Yzg1N2RkOWExYzk5YmY5MDFlYWU%3D" target="_blank" rel="noopener noreferrer" class="btn-demo"><span class="t-id">Tampilkan Kredensial</span><span class="t-en">Show Credential</span></a>
+        </div>
+      </div>
             <div class="doc-card animate-in" data-cat="gis">
         <div class="doc-thumb"><img src="images/Sertif/Remote Pilot Training Abdullah Rachmat Sugi.webp" alt="PELATIHAN REMOTE PILOT" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK</span><span class="t-en">SMALL UNMANNED AIRCRAFT SYSTEM REMOTE PILOT COURSE</span></h3>
+          <p><span class="t-id">Terra Drone Indonesia<br>Masa Berlaku Agustus 2026 - Agustus 2028<br>ID Kredensial: TDID/CL/COM/2026/08/033</span><span class="t-en">Terra Drone Indonesia<br>Validity Period August 2026 - August 2028<br>Credential ID: TDID/CL/COM/2026/08/033</span></p>
+          <a href="https://academia.terra-drone.co.id/verify/333" target="_blank" rel="noopener noreferrer" class="btn-demo"><span class="t-id">Tampilkan Kredensial</span><span class="t-en">Show Credential</span></a>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1818,6 +1846,23 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Magang BPN Kota Batu</span><span class="t-en">BPN Batu City Internship</span></h3>
+          <p><span class="t-id">Badan Pertanahan Nasional Kota Batu<br>Diterbitkan Agustus 2024</span><span class="t-en">National Land Agency of Batu City<br>Issued August 2024</span></p>
+        </div>
+      </div>
+      <div class="doc-card animate-in" data-cat="gis">
+        <div class="doc-thumb"><img src="images/Sertif/Abdullah-Rachmat-Sugi-Introduction-to-Machine-Learning-for-Earth-Observation-EO-College-Certificate-EO-College.webp" alt="Introduction to Machine Learning for Earth Observation" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-body">
+          <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
+          <h3><span class="t-id">Pengantar Machine Learning untuk Observasi Bumi</span><span class="t-en">Introduction to Machine Learning for Earth Observation</span></h3>
+          <p><span class="t-id">EO College<br>Diterbitkan September 2026</span><span class="t-en">EO College<br>Issued September 2026</span></p>
+        </div>
+      </div>
+      <div class="doc-card animate-in" data-cat="gis">
+        <div class="doc-thumb"><img src="images/Sertif/0814796348AS.webp" alt="Hyperspectral Data for Land and Coastal Systems" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-body">
+          <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
+          <h3><span class="t-id">Data Hiperspektral untuk Sistem Daratan dan Pesisir</span><span class="t-en">Hyperspectral Data for Land and Coastal Systems</span></h3>
+          <p><span class="t-id">NASA - National Aeronautics and Space Administration<br>Diterbitkan Agustus 2026</span><span class="t-en">NASA - National Aeronautics and Space Administration<br>Issued August 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1825,6 +1870,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Pelatihan Drone PVIA</span><span class="t-en">PVIA Drone Training</span></h3>
+          <p><span class="t-id">Photogrammetry Vision &amp; Image Analysis (PVIA) ITS<br>Diterbitkan Februari 2024</span><span class="t-en">Photogrammetry Vision &amp; Image Analysis (PVIA) ITS<br>Issued February 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1832,6 +1878,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Data Kelautan untuk Samudra Berkelanjutan</span><span class="t-en">Marine Data 4 Sustainable Oceans</span></h3>
+          <p><span class="t-id">Copernicus Marine Service<br>Diterbitkan April 2025</span><span class="t-en">Copernicus Marine Service<br>Issued April 2025</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1839,6 +1886,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Pelatihan Geomatika 1 (2024)</span><span class="t-en">Geomatics Training 1 (2024)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: SERTIF/GEOMATICSTRAININGG1/PROFKIL/HIMAGE-ITS/V/2024</span><span class="t-en">Geomatics Student Association<br>Credential ID: SERTIF/GEOMATICSTRAININGG1/PROFKIL/HIMAGE-ITS/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1846,6 +1894,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Pengantar GIS</span><span class="t-en">Esri: Getting Started with GIS</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1853,6 +1902,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Dasar-Dasar GIS</span><span class="t-en">Esri: GIS Basics</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1860,6 +1910,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Pemetaan Perubahan Tutupan Lahan</span><span class="t-en">Esri: Measuring Land-Cover Change</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
 
@@ -1869,6 +1920,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Sekolah Media Dasar (2023)</span><span class="t-en">Basic Media School (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 50/SERTIF/BASICMEDIASCHOOL/KOMINFO/HIMAGE-ITS/X/2023</span><span class="t-en">Geomatics Student Association<br>Credential ID: 50/SERTIF/BASICMEDIASCHOOL/KOMINFO/HIMAGE-ITS/X/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1876,6 +1928,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Peningkatan Kemampuan Ilmiah (2023)</span><span class="t-en">Scientific Skill Up (2023)</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>ID Kredensial: 050/SRTF/SKILL UP KEILMIAHAN/HCD/BEM FT-SPK/III/2023</span><span class="t-en">BEM FT-SPK ITS<br>Credential ID: 050/SRTF/SKILL UP KEILMIAHAN/HCD/BEM FT-SPK/III/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1883,6 +1936,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Karya Tulis Ilmiah (PKTI)</span><span class="t-en">Scientific Writing Training (PKTI)</span></h3>
+          <p><span class="t-id">Badan Eksekutif Mahasiswa Institut Teknologi Sepuluh Nopember (BEM ITS)<br>ID Kredensial: 4225/SRTF/PKTITD/RISTEK/BEM-ITS/XII/2022</span><span class="t-en">Student Executive Board of Institut Teknologi Sepuluh Nopember (BEM ITS)<br>Credential ID: 4225/SRTF/PKTITD/RISTEK/BEM-ITS/XII/2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1890,6 +1944,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Keterampilan Mahasiswa Wirausaha (LKMW)</span><span class="t-en">Basic Entrepreneurial Skills (LKMW)</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember (ITS)<br>ID Kredensial: 7538/IT2.1.3/B/DL.07.00/2022</span><span class="t-en">Institut Teknologi Sepuluh Nopember (ITS)<br>Credential ID: 7538/IT2.1.3/B/DL.07.00/2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1897,6 +1952,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Kewirausahaan (2023)</span><span class="t-en">Entrepreneurship Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 072/SERTIF/PELATIHAN KWU/KEWIRAUSAHAAN/HIMAGE-ITS/V/2023</span><span class="t-en">Geomatics Student Association<br>Credential ID: 072/SERTIF/PELATIHAN KWU/KEWIRAUSAHAAN/HIMAGE-ITS/V/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1904,6 +1960,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Kewirausahaan (2024)</span><span class="t-en">Entrepreneurship Training (2024)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2024<br>ID Kredensial: 001/SERTIF/PELATIHAN KWU/ENTREPRENEURSHIP/HIMAGE-ITS/V/2024</span><span class="t-en">Geomatics Student Association<br>Issued May 2024<br>Credential ID: 001/SERTIF/PELATIHAN KWU/ENTREPRENEURSHIP/HIMAGE-ITS/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1911,6 +1968,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan RSKO (2023)</span><span class="t-en">RSKO Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 040/SERTIF/RSKO/PSDM-L/HIMAGE-ITS/IX/2013</span><span class="t-en">Geomatics Student Association<br>Credential ID: 040/SERTIF/RSKO/PSDM-L/HIMAGE-ITS/IX/2013</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1918,6 +1976,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Sekolah Pengembangan Mahasiswa</span><span class="t-en">Student Development School</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan September 2023</span><span class="t-en">Geomatics Student Association<br>Issued September 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1925,6 +1984,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Spasial (2023)</span><span class="t-en">Spatial Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2023</span><span class="t-en">Geomatics Student Association<br>Issued May 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1932,6 +1992,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Spiritual &amp; Kebangsaan</span><span class="t-en">Spiritual &amp; National Insight Training</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan Agustus 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued August 2022</span></p>
         </div>
       </div>
 
@@ -1941,6 +2002,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Kuliah Tamu</span><span class="t-en">Guest Lecture</span></span>
           <h3><span class="t-id">Kuliah Tamu Menteri Transmigrasi</span><span class="t-en">Guest Lecture by the Minister of Transmigration</span></h3>
+          <p><span class="t-id">Kementerian Transmigrasi Indonesia<br>Diterbitkan Juni 2025</span><span class="t-en">Ministry of Transmigration of Indonesia<br>Issued June 2025</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1948,6 +2010,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Jalur Karier ITS (2023)</span><span class="t-en">ITS Career Path (2023)</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan September 2023</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued September 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1955,6 +2018,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Parade Civplan</span><span class="t-en">Civplan Parade</span></h3>
+          <p><span class="t-id">Fakultas Teknik Sipil, Perencanaan, dan Kebumian<br>Diterbitkan Mei 2026</span><span class="t-en">Faculty of Civil, Planning, and Geo Engineering<br>Issued May 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1962,6 +2026,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Georama: Pemodelan Pipa 3D</span><span class="t-en">Georama: 3D Pipeline Modeling</span></h3>
+          <p><span class="t-id">Georama Karya Indonesia<br>Diterbitkan Juli 2024</span><span class="t-en">Georama Karya Indonesia<br>Issued July 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1969,6 +2034,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Pola Pikir Berkembang &amp; Mentalitas</span><span class="t-en">Growth Mindset &amp; Strong Mentality</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1976,6 +2042,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Keterampilan Kewirausahaan</span><span class="t-en">Entrepreneurial Skills</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1983,6 +2050,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Pelatihan Karier Geodet</span><span class="t-en">Geodet Career Training</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2023</span><span class="t-en">Geomatics Student Association<br>Issued May 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1990,6 +2058,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Mengubah Stres Menjadi Kreativitas</span><span class="t-en">Turning Stress Into Creativity</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
 
@@ -1999,6 +2068,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Organisasi</span><span class="t-en">Organization</span></span>
           <h3><span class="t-id">Komisi Legislasi BPM</span><span class="t-en">BPM Legislative Commission</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Januari 2026</span><span class="t-en">Geomatics Student Association<br>Issued January 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2006,6 +2076,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Organisasi</span><span class="t-en">Organization</span></span>
           <h3><span class="t-id">Anggota IBC (2022)</span><span class="t-en">IBC Member (2022)</span></h3>
+          <p><span class="t-id">IBC Institut Teknologi Sepuluh Nopember<br>Diterbitkan Desember 2022</span><span class="t-en">IBC, Sepuluh Nopember Institute of Technology<br>Issued December 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2013,6 +2084,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Kepanitiaan</span><span class="t-en">Committee</span></span>
           <h3><span class="t-id">Staf Dana Usaha, Geosentric 2023</span><span class="t-en">Fundraising Staff, Geosentric 2023</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Desember 2023</span><span class="t-en">Geomatics Student Association<br>Issued December 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2020,6 +2092,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Kepanitiaan</span><span class="t-en">Committee</span></span>
           <h3><span class="t-id">Staf Keamanan &amp; Perizinan, Civplan</span><span class="t-en">Security &amp; Permits Staff, Civplan</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>Diterbitkan Juli 2024</span><span class="t-en">BEM FT-SPK ITS<br>Issued July 2024</span></p>
         </div>
       </div>
 
@@ -2029,6 +2102,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Kompetisi</span><span class="t-en">Competition</span></span>
           <h3><span class="t-id">Innovation Engineering for Society</span><span class="t-en">Innovation Engineering for Society</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>Diterbitkan Maret 2024<br>ID Kredensial: 083/SRTF/IEFS 2024/HCD/BEM FT-SPK/III/2024</span><span class="t-en">BEM FT-SPK ITS<br>Issued March 2024<br>Credential ID: 083/SRTF/IEFS 2024/HCD/BEM FT-SPK/III/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2036,6 +2110,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Kompetisi</span><span class="t-en">Competition</span></span>
           <h3><span class="t-id">Kreasi Publik (2024)</span><span class="t-en">Kreasi Publik (2024)</span></h3>
+          <p><span class="t-id">HUMANISTIK FIA UB<br>ID Kredensial: 008/S.F.16/HUMANISTIK/V/2024</span><span class="t-en">HUMANISTIK, Faculty of Administrative Sciences, University of Brawijaya<br>Credential ID: 008/S.F.16/HUMANISTIK/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2043,6 +2118,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Bahasa</span><span class="t-en">Language</span></span>
           <h3><span class="t-id">Prediksi TOEFL ITP (Skor: 557)</span><span class="t-en">TOEFL ITP Prediction (Score: 557)</span></h3>
+          <p><span class="t-id">Kingdom English Course Malang<br>Masa Berlaku Februari 2026 - Februari 2028</span><span class="t-en">Kingdom English Course Malang<br>Validity Period February 2026 - February 2028</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2050,6 +2126,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Bahasa</span><span class="t-en">Language</span></span>
           <h3><span class="t-id">Sertifikasi DynED Neo &times; Bahasa ITS</span><span class="t-en">DynED Neo &times; Bahasa ITS Certification</span></h3>
+          <p><span class="t-id">DynEd International<br>Diterbitkan Maret 2026<br>ID Kredensial: n-3v-lmn0-cdeg-10</span><span class="t-en">DynEd International<br>Issued March 2026<br>Credential ID: n-3v-lmn0-cdeg-10</span></p>
         </div>
       </div>
 
@@ -2436,9 +2513,9 @@
   let currentCertCat   = 'all';
   let currentCertLimit = 3;
 
-  // 1. Identifikasi kartu yang ingin di-pin di posisi teratas berdasarkan judulnya
-  const pinnedPrimary = certCards.find(c => c.innerHTML.includes('PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK'));
-  const pinned2 = certCards.find(c => c.innerHTML.includes('Magang BPN Kota Batu'));
+  // 1. Identifikasi tiga kartu yang ingin di-pin di posisi teratas
+  const pinnedPrimary = certCards.find(c => c.innerHTML.includes('Lisensi Remote Pilot Certificate (RPC)'));
+  const pinned2 = certCards.find(c => c.innerHTML.includes('PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK'));
   const pinned3 = certCards.find(c => c.innerHTML.includes('Pelatihan Drone PVIA'));
 
   // 2. Pisahkan sisa kartu yang tidak di-pin ke dalam array baru
