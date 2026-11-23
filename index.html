@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id" data-theme="light" data-lang="id">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
     --paper:         #F6F7F4;
   }
 
-  html { scroll-behavior: smooth; font-size: 16px; }
+  html { scroll-behavior: auto; font-size: 16px; }
   body {
     font-family: var(--font-body);
     background: var(--bg);
@@ -349,6 +349,7 @@
     font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy-deep);
     line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.01em;
   }
+  .word-reveal-word { display: inline-block; }
   .section-sub { font-size: 0.95rem; color: var(--text-muted); max-width: 600px; line-height: 1.75; }
   .divider { width: 36px; height: 3px; background: var(--amber); border-radius: 2px; margin: 0.9rem 0 0rem; }
 
@@ -482,7 +483,7 @@
   .carto-count-label { font-size: 12px; color: var(--text-muted); margin-bottom: 1.6rem; letter-spacing: 0.02em; opacity: 0.7; }
   .map-grid, .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
   .map-card, .doc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow-sm); }
-  .map-card:hover, .doc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: #bdd0e2; }
+  .map-card:hover, .doc-card:hover { box-shadow: var(--shadow-lg); border-color: #bdd0e2; }
   
   .map-thumb, .doc-thumb {
     width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--bg-alt) 0%, #d8e4f0 100%);
@@ -582,7 +583,7 @@
   #webgis { background: var(--bg-alt); }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
   .project-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow-sm); }
-  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .project-card:hover { box-shadow: var(--shadow-lg); }
   .project-preview {
     width: 100%; height: 180px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 6px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
@@ -691,10 +692,9 @@
 
   /* ── SMOOTH LIFT CARDS ── */
   .map-card, .model3d-card, .project-card, .gee-card, .doc-card {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
   }
   .map-card:hover, .model3d-card:hover, .project-card:hover, .gee-card:hover, .doc-card:hover {
-    transform: translateY(-8px) scale(1.01);
     box-shadow: 0 20px 40px rgba(11, 31, 58, 0.12);
   }
   html[data-theme="dark"] .map-card:hover, 
@@ -2281,7 +2281,61 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = window.Lenis ? new Lenis({ autoRaf: false, anchors: true }) : null;
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const splitHeadingIntoWords = heading => {
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) {
+      if (walker.currentNode.textContent.trim()) textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          fragment.appendChild(document.createTextNode(part));
+          return;
+        }
+
+        const word = document.createElement('span');
+        word.className = 'word-reveal-word';
+        word.textContent = part;
+        fragment.appendChild(word);
+      });
+      node.replaceWith(fragment);
+    });
+  };
+
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(splitHeadingIntoWords);
+  if (!reducedMotion) {
+    sectionTitles.forEach(heading => {
+      const words = heading.querySelectorAll('.word-reveal-word');
+      gsap.fromTo(words, { opacity: 0, y: 22 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.55,
+        stagger: 0.065,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: heading, start: 'top 84%', once: true }
+      });
+    });
+  }
+
   /* ── INTRO LOADER: sapaan multi-bahasa ─────────────────────────────── */
   (function () {
     const overlay = document.getElementById('intro-loader');
@@ -2669,12 +2723,12 @@
     containers.forEach(container => {
       const card = container.closest('.map-card, .model3d-card, .gee-card, .project-card, .doc-card');
       const img = container.querySelector('img');
+      const imageSrc = img && (img.dataset.fullSrc || img.currentSrc || img.src);
       
       // Cek apakah kartu disembunyikan oleh filter tab
       const isCardHidden = card && card.style.display === 'none';
       
       // Jika ada gambar DAN kartunya tidak sedang disembunyikan
-      const imageSrc = img && (img.dataset.fullSrc || img.currentSrc || img.src);
       if (img && !isCardHidden && imageSrc && !imageSrc.endsWith('#')) {
         const titleEl = card ? card.querySelector('h3') : null;
         const lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'id';
@@ -2783,6 +2837,31 @@
     });
 })();
 
+</script>
+<script type="module">
+  import { animate, hover, inView } from 'https://cdn.jsdelivr.net/npm/motion@12.23.24/+esm';
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = document.querySelectorAll(
+    '.map-card, .model3d-card, .project-card, .gee-card, .doc-card, .edu-card, .cert-card'
+  );
+
+  cards.forEach((card, index) => {
+    if (reducedMotion) return;
+
+    inView(card, () => {
+      animate(card, { opacity: [0, 1], y: [26, 0] }, {
+        duration: 0.65,
+        delay: (index % 4) * 0.07,
+        ease: [0.22, 1, 0.36, 1]
+      });
+    }, { margin: '0px 0px -48px 0px' });
+
+    hover(card, () => {
+      animate(card, { y: -7, scale: 1.015 }, { duration: 0.22, ease: 'easeOut' });
+      return () => animate(card, { y: 0, scale: 1 }, { duration: 0.28, ease: 'easeOut' });
+    });
+  });
 </script>
 </body>
 </html>

@@ -76,7 +76,7 @@
     --paper:         #F6F7F4;
   }
 
-  html { scroll-behavior: smooth; font-size: 16px; }
+  html { scroll-behavior: auto; font-size: 16px; }
   body {
     font-family: var(--font-body);
     background: var(--bg);
@@ -349,6 +349,7 @@
     font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--navy-deep);
     line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.01em;
   }
+  .word-reveal-word { display: inline-block; }
   .section-sub { font-size: 0.95rem; color: var(--text-muted); max-width: 600px; line-height: 1.75; }
   .divider { width: 36px; height: 3px; background: var(--amber); border-radius: 2px; margin: 0.9rem 0 0rem; }
 
@@ -463,6 +464,8 @@
   .timeline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
   .timeline-desc ul { padding-left: 16px; margin-top: 6px; }
   .timeline-desc li { margin-bottom: 6px; }
+  .timeline-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; max-width: 560px; }
+  .timeline-photos .doc-thumb { aspect-ratio: 16/10; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
 
   /* ── CARTOGRAPHY & SHARED GRID ────────────────────────────────── */
   #cartography, #activities { background: var(--bg); }
@@ -480,7 +483,7 @@
   .carto-count-label { font-size: 12px; color: var(--text-muted); margin-bottom: 1.6rem; letter-spacing: 0.02em; opacity: 0.7; }
   .map-grid, .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
   .map-card, .doc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow-sm); }
-  .map-card:hover, .doc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: #bdd0e2; }
+  .map-card:hover, .doc-card:hover { box-shadow: var(--shadow-lg); border-color: #bdd0e2; }
   
   .map-thumb, .doc-thumb {
     width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--bg-alt) 0%, #d8e4f0 100%);
@@ -580,7 +583,7 @@
   #webgis { background: var(--bg-alt); }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
   .project-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow-sm); }
-  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .project-card:hover { box-shadow: var(--shadow-lg); }
   .project-preview {
     width: 100%; height: 180px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 6px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
@@ -689,10 +692,9 @@
 
   /* ── SMOOTH LIFT CARDS ── */
   .map-card, .model3d-card, .project-card, .gee-card, .doc-card {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
   }
   .map-card:hover, .model3d-card:hover, .project-card:hover, .gee-card:hover, .doc-card:hover {
-    transform: translateY(-8px) scale(1.01);
     box-shadow: 0 20px 40px rgba(11, 31, 58, 0.12);
   }
   html[data-theme="dark"] .map-card:hover, 
@@ -904,6 +906,23 @@
     margin-bottom: 0; /* Menghapus dorongan ruang kosong ke bawah */
     line-height: 1.35;
   }
+  #cert-grid .doc-body .btn-demo {
+    display: inline-block;
+    align-self: flex-start;
+    flex: none;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  #cert-grid .doc-body .btn-demo:hover {
+    background: var(--bg-alt);
+    color: var(--navy-deep);
+    box-shadow: none;
+  }
   /* ── TWO-COLUMN TIMELINE UNTUK PC ─────────────────────────────── */
   @media (min-width: 901px) {
     .timeline {
@@ -975,7 +994,7 @@
       <span class="hero-title"><span class="t-id">Geomatics Engineer | Institut Teknologi Sepuluh Nopember</span><span class="t-en">Geomatics Engineer | Sepuluh Nopember Institute of Technology</span></span>
     </div>
     <p class="hero-bio">
-      <span class="t-id">Fresh Graduate Teknik Geomatika ITS yang memadukan keakuratan akuisisi data lapangan dengan inovasi visualisasi melalui WebGIS, kartografi tematik, dan rekonstruksi 3D Gaussian Splatting untuk menghasilkan solusi geospasial yang presisi.</span>
+      <span class="t-id">Fresh Graduate Teknik Geomatika ITS dengan kompetensi dalam akuisisi data lapangan yang akurat serta pengembangan visualisasi melalui WebGIS, kartografi tematik, dan rekonstruksi 3D Gaussian Splatting untuk menghasilkan solusi geospasial yang presisi.</span>
       <span class="t-en">A fresh graduate in Geomatics Engineering from ITS, bridging precise field data acquisition with innovative spatial visualization through WebGIS, thematic cartography, and 3D Gaussian Splatting to deliver accurate geospatial solutions.</span>
     </p>
     <div class="hero-socials">
@@ -1121,6 +1140,10 @@
                   <li><span class="t-id">Menyusun 6 peta tematik dan 1 peta hasil pengukuran mencakup sebaran stasiun, batas aset tanah, dan lintas jalur Daop 7 Madiun.</span><span class="t-en">Developed 6 thematic maps and 1 survey layout depicting station distributions, land asset boundaries, and railway corridors across Daop 7 Madiun.</span></li>
                 </ul>
               </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/KAI Lapangan.webp" alt="Pengukuran batas aset tanah PT KAI di Jombang menggunakan GNSS RTK EFIX" data-caption-id="Pengukuran batas aset tanah PT KAI di Jombang menggunakan GNSS RTK EFIX" data-caption-en="Surveying PT KAI land asset boundaries in Jombang using EFIX GNSS RTK" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📷</div></div>
+                <div class="doc-thumb"><img src="images/KAI Foto Bersama.webp" alt="Dokumentasi bersama tim aset PT KAI Daop 7 Madiun" data-caption-id="Dokumentasi bersama tim aset PT KAI Daop 7 Madiun" data-caption-en="Group photo with the PT KAI Regional Operation VII Madiun asset team" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+              </div>
             </div>
             <div class="timeline-item">
               <span class="timeline-date">Jan 2025 - Feb 2025</span>
@@ -1133,6 +1156,10 @@
                   <li><span class="t-id">Mencocokkan data spasial bidang tanah dengan buku sertifikat tanah/SHM bangunan guna memastikan kesesuaian antara batas fisik dan dokumen kepemilikan.</span><span class="t-en">Cross-checked spatial parcel data against land certificates (SHM) to ensure consistency between physical boundaries and legal ownership documents.</span></li>
                 </ul>
               </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/BPN Kediri Lapangan.webp" alt="Pengukuran batas bidang tanah pada kawasan perumahan di Kota Kediri" data-caption-id="Pengukuran batas bidang tanah pada kawasan perumahan di Kota Kediri" data-caption-en="Surveying land parcel boundaries in a residential area of Kediri City" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+                <div class="doc-thumb"><img src="images/Foto BPN Kediri.webp" alt="Dokumentasi bersama tim survei dan pemetaan ATR/BPN Kota Kediri" data-caption-id="Dokumentasi bersama tim survei dan pemetaan ATR/BPN Kota Kediri" data-caption-en="Group photo with the ATR/BPN Kediri City surveying and mapping team" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📷</div></div>
+              </div>
             </div>
             <div class="timeline-item">
               <span class="timeline-date">Jul 2024 - Aug 2024</span>
@@ -1144,6 +1171,10 @@
                   <li><span class="t-id">Melaksanakan pengukuran lapangan menggunakan peralatan GNSS pada 10 bidang perkebunan di Desa Sumberbrantas, Kecamatan Bumiaji.</span><span class="t-en">Conducted field boundary surveys using geodetic GNSS equipment across 10 plantation parcels in Sumberbrantas Village, Bumiaji District.</span></li>
                   <li><span class="t-id">Memverifikasi data kepemilikan tanah melalui pencocokan Sertifikat Hak Milik (SHM) dengan basis data instansi untuk memastikan akurasi dan validitas data.</span><span class="t-en">Validated land ownership records by cross-referencing freehold certificates (Sertifikat Hak Milik/SHM) with the institutional cadastral database to ensure legal tenure and data integrity.</span></li>
                 </ul>
+              </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/GNSS Batas Wilayah BPN Kota Batu.webp" alt="Pengukuran batas bidang tanah di Kota Batu menggunakan GNSS" data-caption-id="Pengukuran batas bidang tanah di Kota Batu menggunakan GNSS" data-caption-en="Surveying land parcel boundaries in Batu City using GNSS" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📷</div></div>
+                <div class="doc-thumb"><img src="images/Pengecekan dan perbaikan topologi.webp" alt="Pemeriksaan dan perbaikan topologi bidang tanah" data-caption-id="Pemeriksaan dan perbaikan topologi bidang tanah" data-caption-en="Checking and correcting land parcel topology" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📄</div></div>
               </div>
             </div>
           </div>
@@ -1163,6 +1194,27 @@
                   <li><span class="t-id">Mencapai ketelitian dimensi linier tinggi dengan nilai RMSE 1,36 cm dan deviasi Cloud-to-Cloud 0,183 m yang divalidasi pada 7 segmen pengukuran lapangan.</span><span class="t-en">Achieved high linear dimensional accuracy with an RMSE of 1.36 cm and a Cloud-to-Cloud deviation of 0.183 m, validated across 7 field measurement segments.</span></li>
                 </ul>
               </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/Model 3D Candi Tikus Kondisi Kering.webp" alt="Visualisasi model 3D Candi Tikus pada kondisi kering" data-caption-id="Visualisasi model 3D Candi Tikus pada kondisi kering" data-caption-en="3D model visualization of Candi Tikus in dry conditions" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🏛️</div></div>
+                <div class="doc-thumb"><img src="images/Penyerahan Buku TA ke Museum Majapahit.webp" alt="Penyerahan buku tugas akhir kepada Museum Majapahit" data-caption-id="Penyerahan buku tugas akhir kepada Museum Majapahit" data-caption-en="Presentation of the final project book to the Majapahit Museum" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Juni 2025 - Juli 2025</span>
+              <h4 class="timeline-title"><span class="t-id">Pemetaan Terestris dan Batimetri Kawasan Suramadu, Surabaya</span><span class="t-en">Terrestrial and Bathymetric Mapping of the Suramadu Area, Surabaya</span></h4>
+              <div class="timeline-org"><span class="t-id">Kemah Kerja Hidrografi 2025 Departemen Teknik Geomatika ITS</span><span class="t-en">Hydrographic Field Work Camp 2025, ITS Geomatics Engineering Department</span></div>
+              <div class="timeline-desc">
+                <ul>
+                  <li><span class="t-id">Melakukan pengukuran Kerangka Kontrol Vertikal (KKV) Global pada 10 titik kontrol menggunakan waterpass dengan metode pulang-pergi double stand.</span><span class="t-en">Surveyed 10 Global Vertical Control Network points using a level instrument with the double-run, double-stand method.</span></li>
+                  <li><span class="t-id">Mengukur dan mengolah 453 titik detail situasi dan kontur pada area kurang lebih 3 hektare berbasis 6 titik Bench Mark (BM) kontrol menggunakan Total Station hingga tahap digitasi.</span><span class="t-en">Surveyed and processed 453 topographic detail points across approximately 3 hectares, based on 6 Bench Mark (BM) control points, using a Total Station through the digitization stage.</span></li>
+                  <li><span class="t-id">Melaksanakan pengukuran batimetri perairan dangkal dengan metode sounding colok di zona pesisir yang tidak terjangkau kapal survei untuk pemodelan elevasi dasar perairan.</span><span class="t-en">Conducted shallow-water bathymetric measurements using the pole sounding method in coastal areas inaccessible to survey vessels for underwater terrain elevation modeling.</span></li>
+                </ul>
+              </div>
+              <div class="timeline-photos">
+             <div class="doc-thumb"><img src="images/Plot titik kontur dan kontur.webp" alt="Plot titik detail dan kontur hasil survei topografi" data-caption-id="Plot titik detail dan kontur hasil survei topografi" data-caption-en="Plot of detailed survey points and contours from the topographic survey" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+               <div class="doc-thumb"><img src="images/Pengolahan titik detil.webp" alt="Pengolahan data titik detail hasil survei" data-caption-id="Pengolahan data titik detail hasil survei" data-caption-en="Processing detailed survey point data" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📐</div></div>
+              </div>
             </div>
 
             <div class="timeline-item">
@@ -1175,6 +1227,10 @@
                   <li><span class="t-id">Menyusun accuracy assessment berbasis confusion matrix dan koefisien Kappa untuk validasi ketelitian hasil klasifikasi citra.</span><span class="t-en">Conducted confusion matrix-based accuracy assessment and Kappa coefficient evaluations to validate image classification precision.</span></li>
                   <li><span class="t-id">Memproduksi dan menyusun layout seri peta tematik multitemporal berstandar kartografis menggunakan ArcGIS Pro.</span><span class="t-en">Produced and designed standardized multi-temporal thematic map layouts using ArcGIS Pro.</span></li>
                 </ul>
+              </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/Pengolahan Satelit Metode MVS.webp" alt="Pengolahan citra satelit untuk analisis tutupan lahan Wonorejo" data-caption-id="Pengolahan citra satelit untuk analisis tutupan lahan Wonorejo" data-caption-en="Satellite image processing for land cover analysis in Wonorejo" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+                <div class="doc-thumb"><img src="images/Foto Bersama dengan Kelurahan Wonorejo.webp" alt="Dokumentasi bersama perangkat Kelurahan Wonorejo" data-caption-id="Dokumentasi bersama perangkat Kelurahan Wonorejo" data-caption-en="Group photo with Wonorejo Village officials" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📊</div></div>
               </div>
             </div>
             
@@ -1189,6 +1245,10 @@
                   <li><span class="t-id">Melakukan koreksi geometri melalui reposisi batas bidang, eliminasi NIB ganda/anomali, serta sinkronisasi data shapefile ArcGIS dengan gambar kerja AutoCAD guna memastikan konsistensi basis data pertanahan.</span><span class="t-en">Executed geometric corrections through parcel boundary repositioning, elimination of duplicate/anomalous NIBs, and synchronization of ArcGIS shapefiles with AutoCAD drawings to ensure land database consistency.</span></li>
                 </ul>
               </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/Pengecekan dan perbaikan topologi Surabaya.webp" alt="Pemeriksaan dan perbaikan topologi bidang tanah di Surabaya" data-caption-id="Pemeriksaan dan perbaikan topologi bidang tanah di Surabaya" data-caption-en="Checking and correcting land parcel topology in Surabaya" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🗺️</div></div>
+                <div class="doc-thumb"><img src="images/Excel list data topologi.webp" alt="Rekapitulasi anomali topologi bidang tanah" data-caption-id="Rekapitulasi anomali topologi bidang tanah" data-caption-en="Summary of land parcel topology anomalies" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📐</div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1197,8 +1257,8 @@
           <h3 class="about-subtitle"><span class="t-id">Pengalaman Organisasi</span><span class="t-en">Organizational Experience</span></h3>
           <div class="timeline">
             <div class="timeline-item">
-              <span class="timeline-date">Nov 2024 - Feb 2026</span>
-              <h4 class="timeline-title"><span class="t-id">Komisi II</span><span class="t-en">Commission II</span></h4>
+              <span class="timeline-date">Des 2023 - Des 2024</span>
+              <h4 class="timeline-title"><span class="t-id">Komisi Legislasi</span><span class="t-en">Legislative Commission</span></h4>
               <div class="timeline-org"><span class="t-id">Badan Legislatif Mahasiswa Fakultas Teknik Sipil, Perencanaan, dan Kebumian ITS (BLM FT-SPK ITS)</span><span class="t-en">Student Legislative Board, Faculty of Civil, Planning, and Geo Engineering (BLM FT-SPK ITS)</span></div>
               <div class="timeline-desc">
                 <ul>
@@ -1207,9 +1267,12 @@
                   <li><span class="t-id">Berkoordinasi dengan berbagai pihak untuk mendukung kelancaran pelaksanaan kegiatan dan memastikan proses pengambilan keputusan berjalan secara tertib dan efektif.</span><span class="t-en">Coordinated with stakeholders to ensure the effective execution of activities and orderly decision-making processes in accordance with organizational procedures.</span></li>
                 </ul>
               </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/BLM.webp" alt="Dokumentasi BLM FT-SPK ITS periode 2024/2025" data-caption-id="Dokumentasi BLM FT-SPK ITS periode 2024/2025" data-caption-en="Group photo of the BLM FT-SPK ITS for the 2023/2024 term" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📷</div></div>
+              </div>
             </div>
             <div class="timeline-item">
-              <span class="timeline-date">Dec 2023 - Dec 2025</span>
+              <span class="timeline-date">Des 2024 - Des 2025</span>
               <h4 class="timeline-title"><span class="t-id">Komisi Legislasi</span><span class="t-en">Legislative Commission</span></h4>
               <div class="timeline-org"><span class="t-id">Badan Perwakilan Mahasiswa Himpunan Mahasiswa Geomatika ITS (BPM HIMAGE-ITS)</span><span class="t-en">Student Representative Council, Geomatics Engineering Student Association (BPM HIMAGE-ITS)</span></div>
               <div class="timeline-desc">
@@ -1218,6 +1281,10 @@
                   <li><span class="t-id">Melakukan kajian, penyusunan, dan peninjauan kebijakan serta regulasi organisasi guna mendukung tata kelola organisasi yang efektif.</span><span class="t-en">Reviewed and formulated organizational policies and regulations to support effective governance.</span></li>
                   <li><span class="t-id">Memberikan arahan kepada anggota komisi dan mengoordinasikan fungsi legislasi dalam proses perumusan kebijakan serta pengambilan keputusan organisasi.</span><span class="t-en">Guided commission members and coordinated legislative functions in policy formulation and organizational decision-making.</span></li>
                 </ul>
+              </div>
+              <div class="timeline-photos">
+                <div class="doc-thumb"><img src="images/Komisi Legislasi 20232024.webp" alt="Dokumentasi Komisi Legislasi BPM HIMAGE-ITS periode 2023/2024" data-caption-id="Dokumentasi Komisi Legislasi BPM HIMAGE-ITS periode 2023/2024" data-caption-en="Group photo of the BPM HIMAGE-ITS Legislative Commission for the 2023/2024 term" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">📷</div></div>
+                <div class="doc-thumb"><img src="images/Komisi Legislasi20242025.webp" alt="Dokumentasi Komisi Legislasi BPM HIMAGE-ITS periode 2024/2025" data-caption-id="Dokumentasi Komisi Legislasi BPM HIMAGE-ITS periode 2024/2025" data-caption-en="Group photo of the BPM HIMAGE-ITS Legislative Commission for the 2024/2025 term" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">👥</div></div>
               </div>
             </div>
           </div>
@@ -1304,7 +1371,7 @@
     <div class="map-grid" id="map-grid">
       
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Peta Klasifikasi Wilayah 2021.webp" alt="Peta Klasifikasi Wilayah 2021" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Klasifikasi Wilayah 2021.webp" data-full-src="images/Peta Klasifikasi Wilayah 2021.webp" alt="Peta Klasifikasi Wilayah 2021" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Klasifikasi Wilayah Kel. Wonorejo, Surabaya</span><span class="t-en">Regional Classification, Wonorejo Village, Surabaya</span></h3>
           <p><span class="t-id">Klasifikasi supervised berbasis Random Forest menggunakan citra Sentinel-2 untuk mendeteksi tutupan lahan multi-kelas.</span><span class="t-en">Supervised Random Forest classification using Sentinel-2 imagery to detect multi-class land cover.</span></p>
@@ -1313,7 +1380,7 @@
       </div>
       
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Peta Resiko Banjir.webp" alt="Peta Potensi Banjir Kota Bandung" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Resiko Banjir.webp" data-full-src="images/Peta Resiko Banjir.webp" alt="Peta Potensi Banjir Kota Bandung" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Potensi Banjir Kota Bandung</span><span class="t-en">Flood Potential, Bandung City</span></h3>
           <p><span class="t-id">Analisis multi-kriteria Weighted Overlay menggunakan DEM, curah hujan, dan tutupan lahan guna identifikasi zona rawan banjir.</span><span class="t-en">Multi-criteria Weighted Overlay analysis using DEM, rainfall, and land cover to identify flood-prone zones.</span></p>
@@ -1322,7 +1389,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="cadastral">
-        <div class="map-thumb"><img src="images/Peta Lintas KAI.webp" alt="Lintas Jalur Non-Aktif KAI Daop 7 Madiun" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Lintas KAI.webp" data-full-src="images/Peta Lintas KAI.webp" alt="Lintas Jalur Non-Aktif KAI Daop 7 Madiun" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Lintas Jalur Non-Aktif KAI Daop 7 Madiun</span><span class="t-en">Inactive Rail Lines, KAI Daop 7 Madiun</span></h3>
           <p><span class="t-id">Pemetaan dan inventarisasi jalur rel nonaktif sebagai dokumentasi aset infrastruktur perkeretaapian warisan.</span><span class="t-en">Mapping and inventory of inactive rail lines as documentation of legacy railway infrastructure assets.</span></p>
@@ -1331,7 +1398,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/Peta 2D South Kelompok 8.webp" alt="Peta 2D South Nambangan Surabaya" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta 2D South Kelompok 8.webp" data-full-src="images/Peta 2D South Kelompok 8.webp" alt="Peta 2D South Nambangan Surabaya" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta 2D South Nambangan Surabaya</span><span class="t-en">2D Map of South Nambangan, Surabaya</span></h3>
           <p><span class="t-id">Hasil survei hidrografi pemetaan dasar perairan wilayah South Nambangan Surabaya untuk keperluan navigasi dan rekayasa pantai.</span><span class="t-en">Hydrographic survey results mapping the seabed of the South Nambangan waters for navigation and coastal engineering purposes.</span></p>
@@ -1340,7 +1407,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/GWR.webp" alt="Distribusi Koefisien GWR Kualitas Udara Madrid" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/GWR.webp" data-full-src="images/GWR.webp" alt="Distribusi Koefisien GWR Kualitas Udara Madrid" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Distribusi Koefisien GWR Kualitas Udara Madrid</span><span class="t-en">GWR Coefficient Distribution, Madrid Air Quality</span></h3>
           <p><span class="t-id">Geographically Weighted Regression untuk analisis spasial non-stasioner variabel kualitas udara Kota Madrid, Spanyol.</span><span class="t-en">Geographically Weighted Regression for non-stationary spatial analysis of air quality variables in Madrid, Spain.</span></p>
@@ -1349,7 +1416,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Peta Curah Hujan.webp" alt="Peta Curah Hujan Kec. Tawangmangu" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Curah Hujan.webp" data-full-src="images/Peta Curah Hujan.webp" alt="Peta Curah Hujan Kec. Tawangmangu" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Curah Hujan Kec. Tawangmangu (CHIRPS-2.0)</span><span class="t-en">Rainfall Distribution, Tawangmangu District (CHIRPS-2.0)</span></h3>
           <p><span class="t-id">Peta distribusi curah hujan berbasis data CHIRPS-2.0 untuk analisis spasial presipitasi Kecamatan Tawangmangu, Jawa Tengah.</span><span class="t-en">Rainfall distribution map based on CHIRPS-2.0 data for spatial precipitation analysis of Tawangmangu District, Central Java.</span></p>
@@ -1358,7 +1425,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="cadastral">
-        <div class="map-thumb"><img src="images/Peta Lokasi Candi Tikus.webp" alt="Peta Lokasi Situs Candi Tikus" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Lokasi Candi Tikus.webp" data-full-src="images/Peta Lokasi Candi Tikus.webp" alt="Peta Lokasi Situs Candi Tikus" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta Lokasi Penelitian Situs Candi Tikus</span><span class="t-en">Research Location Map, Candi Tikus Site</span></h3>
           <p><span class="t-id">Peta lokasi studi Tugas Akhir mengenai rekonstruksi 3D cagar budaya Candi Tikus, kawasan warisan Majapahit di Trowulan.</span><span class="t-en">Thesis study location map for the 3D reconstruction of Candi Tikus, a Majapahit heritage site in Trowulan.</span></p>
@@ -1367,7 +1434,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/Peta Detil Situasi.webp" alt="Topografi Total Station" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Detil Situasi.webp" data-full-src="images/Peta Detil Situasi.webp" alt="Topografi Total Station" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta Topografi</span><span class="t-en">Topographic Map</span></h3>
           <p><span class="t-id">Peta topografi dari pengukuran terestrial menggunakan Total Station untuk akuisisi kontur dan ketinggian data lapangan.</span><span class="t-en">Topographic map derived from terrestrial measurements using a Total Station to acquire contour and elevation field data.</span></p>
@@ -1376,7 +1443,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Hot Spot.webp" alt="Hot Spot Populasi Kota Bandung" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Hot Spot.webp" data-full-src="images/Hot Spot.webp" alt="Hot Spot Populasi Kota Bandung" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Hot Spot Populasi per Kelurahan Kota Bandung</span><span class="t-en">Population Hot Spots by Sub-district, Bandung</span></h3>
           <p><span class="t-id">Analisis klaster spasial Getis-Ord Gi* berbasis data WorldPop guna mengidentifikasi konsentrasi kepadatan penduduk.</span><span class="t-en">Getis-Ord Gi* spatial clustering analysis based on WorldPop data to identify population density concentrations.</span></p>
@@ -1385,7 +1452,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Resiko Tsunami.webp" alt="Risiko Tsunami Pangandaran" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Resiko Tsunami.webp" data-full-src="images/Resiko Tsunami.webp" alt="Risiko Tsunami Pangandaran" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Risiko Tsunami Kab. Pangandaran</span><span class="t-en">Tsunami Risk, Pangandaran Regency</span></h3>
           <p><span class="t-id">Pemetaan kawasan rawan bencana tsunami berbasis multi-parameter, meliputi bahaya, kerentanan, dan kapasitas pesisir.</span><span class="t-en">Multi-parameter tsunami hazard mapping covering hazard, vulnerability, and coastal capacity.</span></p>
@@ -1394,7 +1461,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="cadastral">
-        <div class="map-thumb"><img src="images/Peta Aset Daop 7 Madiun Jl. Anggrek.webp" alt="Bidang Aset Kawasan Jl. Anggrek KAI" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Aset Daop 7 Madiun Jl. Anggrek.webp" data-full-src="images/Peta Aset Daop 7 Madiun Jl. Anggrek.webp" alt="Bidang Aset Kawasan Jl. Anggrek KAI" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Bidang Aset Kawasan Jl. Anggrek Milik PT KAI</span><span class="t-en">Asset Parcels, Jl. Anggrek Area Owned by PT KAI</span></h3>
           <p><span class="t-id">Pengukuran dan deliniasi batas bidang aset kawasan Jl. Anggrek menggunakan GNSS.</span><span class="t-en">GNSS-based measurement and boundary delineation of asset parcels in the Jl. Anggrek area.</span></p>
@@ -1403,7 +1470,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/RBI.webp" alt="Peta RBI (Rupa Bumi Indonesia)" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/RBI.webp" data-full-src="images/RBI.webp" alt="Peta RBI (Rupa Bumi Indonesia)" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta RBI (Rupa Bumi Indonesia)</span><span class="t-en">RBI Map (Indonesian Topographic Base Map)</span></h3>
           <p><span class="t-id">Peta dasar rupa bumi standar BIG yang mencakup unsur topografi, hidrologi, infrastruktur, dan administrasi wilayah.</span><span class="t-en">BIG-standard base map covering topographic, hydrological, infrastructure, and administrative boundary features.</span></p>
@@ -1412,7 +1479,7 @@
       </div>
 
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Sebaran Keluarga Miskin.webp" alt="Sebaran Keluarga Miskin Kota Bandung" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Sebaran Keluarga Miskin.webp" data-full-src="images/Sebaran Keluarga Miskin.webp" alt="Sebaran Keluarga Miskin Kota Bandung" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Sebaran Keluarga Miskin Kota Bandung 2024</span><span class="t-en">Distribution of Low-Income Families, Bandung 2024</span></h3>
           <p><span class="t-id">Visualisasi distribusi spasial data kemiskinan tahun 2024 sebagai basis analisis kebijakan dan intervensi sosial.</span><span class="t-en">Spatial visualization of 2024 poverty data as a basis for policy analysis and social intervention.</span></p>
@@ -1420,7 +1487,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Kring.webp" alt="Kriging Curah Hujan Tawangmangu" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Kring.webp" data-full-src="images/Kring.webp" alt="Kriging Curah Hujan Tawangmangu" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Curah Hujan Metode Kriging Kec. Tawangmangu</span><span class="t-en">Kriging Rainfall Interpolation, Tawangmangu District</span></h3>
           <p><span class="t-id">Interpolasi spasial curah hujan menggunakan metode Kriging geostatistik dari data satelit CHIRPS-2.0.</span><span class="t-en">Spatial rainfall interpolation using geostatistical Kriging from CHIRPS-2.0 satellite data.</span></p>
@@ -1428,7 +1495,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Tutupan Lahan.webp" alt="Tutupan Lahan Kota Bandung" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Tutupan Lahan.webp" data-full-src="images/Tutupan Lahan.webp" alt="Tutupan Lahan Kota Bandung" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Tutupan Lahan Kota Bandung</span><span class="t-en">Land Cover, Bandung City</span></h3>
           <p><span class="t-id">Pemetaan dan klasifikasi penggunaan lahan dari citra satelit resolusi tinggi untuk pembaruan data landuse.</span><span class="t-en">Land use mapping and classification from high-resolution satellite imagery to update land-use data.</span></p>
@@ -1436,7 +1503,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/IDW .webp" alt="Metode IDW Distribusi Suhu Madrid" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/IDW .webp" data-full-src="images/IDW .webp" alt="Metode IDW Distribusi Suhu Madrid" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Distribusi Suhu Metode IDW Madrid</span><span class="t-en">IDW Temperature Distribution, Madrid</span></h3>
           <p><span class="t-id">Interpolasi suhu permukaan menggunakan Inverse Distance Weighting pada studi kasus Kota Madrid, Spanyol.</span><span class="t-en">Surface temperature interpolation using Inverse Distance Weighting for a case study in Madrid, Spain.</span></p>
@@ -1444,7 +1511,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Evakuasi Terdekat.webp" alt="Jalur Evakuasi Pangandaran" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Evakuasi Terdekat.webp" data-full-src="images/Evakuasi Terdekat.webp" alt="Jalur Evakuasi Pangandaran" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Jalur Evakuasi Optimal Kab. Pangandaran</span><span class="t-en">Optimal Evacuation Routes, Pangandaran Regency</span></h3>
           <p><span class="t-id">Network analysis rute evakuasi terdekat dari obyek wisata ke titik aman berdasarkan pemodelan jaringan jalan.</span><span class="t-en">Network analysis of the nearest evacuation routes from tourist sites to safe points based on road network modeling.</span></p>
@@ -1452,7 +1519,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Peta Water.webp" alt="Watershed & Drainase Tawangmangu" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Water.webp" data-full-src="images/Peta Water.webp" alt="Watershed & Drainase Tawangmangu" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Watershed &amp; Drainase Kec. Tawangmangu</span><span class="t-en">Watershed &amp; Drainage, Tawangmangu District</span></h3>
           <p><span class="t-id">Delineasi DAS dan jaringan drainase berbasis DEM untuk analisis hidrologi dan pengelolaan sumber daya air.</span><span class="t-en">DEM-based watershed delineation and drainage network for hydrological analysis and water resource management.</span></p>
@@ -1460,7 +1527,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Peta Visibilitas.webp" alt="Peta Visibilitas Kec. Tawangmangu" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Visibilitas.webp" data-full-src="images/Peta Visibilitas.webp" alt="Peta Visibilitas Kec. Tawangmangu" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Visibilitas Kec. Tawangmangu</span><span class="t-en">Visibility Analysis, Tawangmangu District</span></h3>
           <p><span class="t-id">Analisis viewshed berbasis DEM untuk pemetaan zona tampak dan tersembunyi untuk keperluan perencanaan wilayah.</span><span class="t-en">DEM-based viewshed analysis mapping visible and hidden zones for regional planning purposes.</span></p>
@@ -1468,7 +1535,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Peta Klorofil Teluk Jakarta.webp" alt="Distribusi Klorofil Teluk Jakarta" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Klorofil Teluk Jakarta.webp" data-full-src="images/Peta Klorofil Teluk Jakarta.webp" alt="Distribusi Klorofil Teluk Jakarta" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Distribusi Spasial Klorofil-A Teluk Jakarta</span><span class="t-en">Spatial Chlorophyll-A Distribution, Jakarta Bay</span></h3>
           <p><span class="t-id">Pemetaan konsentrasi klorofil-a dari citra satelit oseanografi dalam memonitor kualitas perairan pesisir Teluk Jakarta.</span><span class="t-en">Mapping chlorophyll-a concentration from oceanographic satellite imagery to monitor coastal water quality in Jakarta Bay.</span></p>
@@ -1476,7 +1543,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Peta Pendidikan Mojokerto.webp" alt="Jangkauan Pelayanan Fasilitas Pendidikan" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Pendidikan Mojokerto.webp" data-full-src="images/Peta Pendidikan Mojokerto.webp" alt="Jangkauan Pelayanan Fasilitas Pendidikan" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Jangkauan Pelayanan Fasilitas Pendidikan</span><span class="t-en">Educational Facility Service Coverage</span></h3>
           <p><span class="t-id">Analisis buffer 500 m dari fasilitas pendidikan untuk pemetaan aksesibilitas dan kesenjangan layanan publik.</span><span class="t-en">500 m buffer analysis around educational facilities to map accessibility and public service gaps.</span></p>
@@ -1484,7 +1551,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Rawan bencana bali.webp" alt="Kawasan Rawan Bencana Bali Selatan" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Rawan bencana bali.webp" data-full-src="images/Rawan bencana bali.webp" alt="Kawasan Rawan Bencana Bali Selatan" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Kawasan Rawan Bencana Tsunami Bali Selatan</span><span class="t-en">Tsunami-Prone Area, South Bali</span></h3>
           <p><span class="t-id">Pemetaan kawasan rawan tsunami Bali Selatan menggunakan citra Landsat 8 dengan analisis multi-parameter bahaya pesisir.</span><span class="t-en">Mapping tsunami-prone areas in South Bali using Landsat 8 imagery with multi-parameter coastal hazard analysis.</span></p>
@@ -1492,7 +1559,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="gis">
-        <div class="map-thumb"><img src="images/Peta Kemiringan Mojokerto.webp" alt="Kemiringan Lereng Kab. Mojokerto" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Kemiringan Mojokerto.webp" data-full-src="images/Peta Kemiringan Mojokerto.webp" alt="Kemiringan Lereng Kab. Mojokerto" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Kemiringan Lereng Kab. Mojokerto</span><span class="t-en">Slope Gradient, Mojokerto Regency</span></h3>
           <p><span class="t-id">Peta slope turunan DEM untuk analisis geomorfologi dan kesesuaian lahan bagi tata ruang Kabupaten Mojokerto.</span><span class="t-en">DEM-derived slope map for geomorphological analysis and land suitability for spatial planning in Mojokerto Regency.</span></p>
@@ -1500,7 +1567,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="env">
-        <div class="map-thumb"><img src="images/Peta Risiko Aptek.webp" alt="Risiko Gempa Lombok NTB" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Risiko Aptek.webp" data-full-src="images/Peta Risiko Aptek.webp" alt="Risiko Gempa Lombok NTB" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Risiko Kerusakan Bangunan Akibat Gempa Lombok</span><span class="t-en">Building Damage Risk from the Lombok Earthquake</span></h3>
           <p><span class="t-id">Analisis spasial kerentanan bangunan terhadap gempa bumi pada studi kasus wilayah terdampak Lombok, NTB.</span><span class="t-en">Spatial analysis of building vulnerability to earthquakes for the affected region of Lombok, NTB.</span></p>
@@ -1508,7 +1575,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="cadastral">
-        <div class="map-thumb"><img src="images/Peta SitePlan.webp" alt="Rencana Siteplan Perumahan Madiun" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta SitePlan.webp" data-full-src="images/Peta SitePlan.webp" alt="Rencana Siteplan Perumahan Madiun" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Rencana Siteplan Perumahan Kab. Madiun</span><span class="t-en">Housing Site Plan, Madiun Regency</span></h3>
           <p><span class="t-id">Peta rencana siteplan kawasan perumahan yang mencakup tata letak kavling, akses jalan, dan zonasi lahan Kabupaten Madiun.</span><span class="t-en">Site plan map for a residential area covering lot layout, road access, and land zoning in Madiun Regency.</span></p>
@@ -1516,7 +1583,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/Peta 2D SBES Echologger Frekuensi 200 kHz Kelompok 8.webp" alt="Peta 2D SBES Echologger 200 kHz" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta 2D SBES Echologger Frekuensi 200 kHz Kelompok 8.webp" data-full-src="images/Peta 2D SBES Echologger Frekuensi 200 kHz Kelompok 8.webp" alt="Peta 2D SBES Echologger 200 kHz" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta 2D SBES Echologger 200 kHz Nambangan</span><span class="t-en">2D SBES Echologger 200 kHz Map, Nambangan</span></h3>
           <p><span class="t-id">Peta batimetri hasil akuisisi Single Beam Echo Sounder Echologger frekuensi 200 kHz untuk resolusi tinggi dasar laut dangkal.</span><span class="t-en">Bathymetric map from a 200 kHz Single Beam Echo Sounder (Echologger) acquisition for high-resolution shallow seabed mapping.</span></p>
@@ -1524,7 +1591,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/Peta Batimetri.webp" alt="Peta Batimetri Laut Selandia Baru" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Peta Batimetri.webp" data-full-src="images/Peta Batimetri.webp" alt="Peta Batimetri Laut Selandia Baru" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta Batimetri Laut Selandia Baru</span><span class="t-en">Bathymetric Map, New Zealand Waters</span></h3>
           <p><span class="t-id">Peta kedalaman laut dari data grid batimetri sebagai visualisasi morfologi dasar laut perairan Selandia Baru.</span><span class="t-en">Sea depth map from bathymetric grid data visualizing seabed morphology in New Zealand waters.</span></p>
@@ -1532,7 +1599,7 @@
         </div>
       </div>
       <div class="map-card animate-in" data-cat="geodesy">
-        <div class="map-thumb"><img src="images/Digitasi KELOMPOK.webp" alt="Detil Situasi Total Station" loading="lazy" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
+        <div class="map-thumb"><img src="images/map-thumbnails/Digitasi KELOMPOK.webp" data-full-src="images/Digitasi KELOMPOK.webp" alt="Detil Situasi Total Station" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta Detil Situasi</span><span class="t-en">Detail Survey Map</span></h3>
           <p><span class="t-id">Peta detil situasi dari pengukuran terestrial menggunakan Total Station guna menentukan posisi obyek dan fitur permukaan bumi.</span><span class="t-en">Detail survey map from terrestrial measurements using a Total Station to determine the position of surface objects and features.</span></p>
@@ -1794,8 +1861,8 @@
     
     <!-- Filter Tabs -->
     <div class="tab-row" id="cert-tabs">
-      <button class="tab-btn active" data-cat="all"><span class="t-id">Semua</span><span class="t-en">All</span> <span class="tab-count">34</span></button>
-      <button class="tab-btn" data-cat="gis">GIS &amp; Geomatics <span class="tab-count">8</span></button>
+      <button class="tab-btn active" data-cat="all"><span class="t-id">Semua</span><span class="t-en">All</span> <span class="tab-count">36</span></button>
+      <button class="tab-btn" data-cat="gis">GIS &amp; Geomatics <span class="tab-count">10</span></button>
       <button class="tab-btn" data-cat="training"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span> <span class="tab-count">10</span></button>
       <button class="tab-btn" data-cat="webinar"><span class="t-id">Webinar &amp; Kuliah Tamu</span><span class="t-en">Webinars &amp; Guest Lectures</span> <span class="tab-count">8</span></button>
       <button class="tab-btn" data-cat="org"><span class="t-id">Organisasi &amp; Panitia</span><span class="t-en">Organizations &amp; Committees</span> <span class="tab-count">4</span></button>
@@ -1807,11 +1874,12 @@
 
       <!-- ================= GIS & GEOMATICS (gis) ================= -->
       <div class="doc-card animate-in" data-cat="gis">
-        <div class="doc-thumb"><img src="images/Sertif/Remote Pilot Training Abdullah Rachmat Sugi.webp" alt="Remote Pilot Certificate" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-thumb"><img src="images/Sertif/Lisensi Remote Pilot Certificate (RPC).webp" alt="Remote Pilot Certificate" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Lisensi Remote Pilot Certificate (RPC) - Pesawat Udara Kecil Tanpa Awak</span><span class="t-en">Remote Pilot Certificate (RPC) - Small Unmanned Aircraft</span></h3>
-          <p><span class="t-id">Kementerian Perhubungan RI - Direktorat Jenderal Perhubungan Udara &bull; Skor 83.33<br>Agustus 2026 - Agustus 2027</span><span class="t-en">Ministry of Transportation of the Republic of Indonesia - Directorate General of Civil Aviation &bull; Score 83.33<br>August 2026 - August 2027</span></p>
+          <p><span class="t-id">Kementerian Perhubungan RI - Direktorat Jenderal Perhubungan Udara &bull; Skor 83.33<br>Masa Berlaku Agustus 2026 - Agustus 2027</span><span class="t-en">Ministry of Transportation of the Republic of Indonesia - Directorate General of Civil Aviation &bull; Score 83.33<br>Validity Period August 2026 - August 2027</span></p>
+          <a href="https://imsis-djpu.kemenhub.go.id/QRVerificator/RPCQR?id=MjM4Zjk2NjExMzg5Yzg1N2RkOWExYzk5YmY5MDFlYWU%3D" target="_blank" rel="noopener noreferrer" class="btn-demo"><span class="t-id">Tampilkan Kredensial</span><span class="t-en">Show Credential</span></a>
         </div>
       </div>
             <div class="doc-card animate-in" data-cat="gis">
@@ -1819,6 +1887,8 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK</span><span class="t-en">SMALL UNMANNED AIRCRAFT SYSTEM REMOTE PILOT COURSE</span></h3>
+          <p><span class="t-id">Terra Drone Indonesia<br>Masa Berlaku Agustus 2026 - Agustus 2028<br>ID Kredensial: TDID/CL/COM/2026/08/033</span><span class="t-en">Terra Drone Indonesia<br>Validity Period August 2026 - August 2028<br>Credential ID: TDID/CL/COM/2026/08/033</span></p>
+          <a href="https://academia.terra-drone.co.id/verify/333" target="_blank" rel="noopener noreferrer" class="btn-demo"><span class="t-id">Tampilkan Kredensial</span><span class="t-en">Show Credential</span></a>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1826,6 +1896,23 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Magang BPN Kota Batu</span><span class="t-en">BPN Batu City Internship</span></h3>
+          <p><span class="t-id">Badan Pertanahan Nasional Kota Batu<br>Diterbitkan Agustus 2024</span><span class="t-en">National Land Agency of Batu City<br>Issued August 2024</span></p>
+        </div>
+      </div>
+      <div class="doc-card animate-in" data-cat="gis">
+        <div class="doc-thumb"><img src="images/Sertif/Abdullah-Rachmat-Sugi-Introduction-to-Machine-Learning-for-Earth-Observation-EO-College-Certificate-EO-College.webp" alt="Introduction to Machine Learning for Earth Observation" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-body">
+          <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
+          <h3><span class="t-id">Pengantar Machine Learning untuk Observasi Bumi</span><span class="t-en">Introduction to Machine Learning for Earth Observation</span></h3>
+          <p><span class="t-id">EO College<br>Diterbitkan September 2026</span><span class="t-en">EO College<br>Issued September 2026</span></p>
+        </div>
+      </div>
+      <div class="doc-card animate-in" data-cat="gis">
+        <div class="doc-thumb"><img src="images/Sertif/0814796348AS.webp" alt="Hyperspectral Data for Land and Coastal Systems" loading="lazy" onerror="this.style.display='none'"><div class="doc-thumb-icon">🔍</div></div>
+        <div class="doc-body">
+          <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
+          <h3><span class="t-id">Data Hiperspektral untuk Sistem Daratan dan Pesisir</span><span class="t-en">Hyperspectral Data for Land and Coastal Systems</span></h3>
+          <p><span class="t-id">NASA - National Aeronautics and Space Administration<br>Diterbitkan Agustus 2026</span><span class="t-en">NASA - National Aeronautics and Space Administration<br>Issued August 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1833,6 +1920,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Pelatihan Drone PVIA</span><span class="t-en">PVIA Drone Training</span></h3>
+          <p><span class="t-id">Photogrammetry Vision &amp; Image Analysis (PVIA) ITS<br>Diterbitkan Februari 2024</span><span class="t-en">Photogrammetry Vision &amp; Image Analysis (PVIA) ITS<br>Issued February 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1840,6 +1928,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Data Kelautan untuk Samudra Berkelanjutan</span><span class="t-en">Marine Data 4 Sustainable Oceans</span></h3>
+          <p><span class="t-id">Copernicus Marine Service<br>Diterbitkan April 2025</span><span class="t-en">Copernicus Marine Service<br>Issued April 2025</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1847,6 +1936,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Pelatihan Geomatika 1 (2024)</span><span class="t-en">Geomatics Training 1 (2024)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: SERTIF/GEOMATICSTRAININGG1/PROFKIL/HIMAGE-ITS/V/2024</span><span class="t-en">Geomatics Student Association<br>Credential ID: SERTIF/GEOMATICSTRAININGG1/PROFKIL/HIMAGE-ITS/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1854,6 +1944,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Pengantar GIS</span><span class="t-en">Esri: Getting Started with GIS</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1861,6 +1952,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Dasar-Dasar GIS</span><span class="t-en">Esri: GIS Basics</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="gis">
@@ -1868,6 +1960,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">GIS &amp; Geomatika</span><span class="t-en">GIS &amp; Geomatics</span></span>
           <h3><span class="t-id">Esri: Pemetaan Perubahan Tutupan Lahan</span><span class="t-en">Esri: Measuring Land-Cover Change</span></h3>
+          <p><span class="t-id">Esri<br>Diterbitkan Mei 2024</span><span class="t-en">Esri<br>Issued May 2024</span></p>
         </div>
       </div>
 
@@ -1877,6 +1970,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Sekolah Media Dasar (2023)</span><span class="t-en">Basic Media School (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 50/SERTIF/BASICMEDIASCHOOL/KOMINFO/HIMAGE-ITS/X/2023</span><span class="t-en">Geomatics Student Association<br>Credential ID: 50/SERTIF/BASICMEDIASCHOOL/KOMINFO/HIMAGE-ITS/X/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1884,6 +1978,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Peningkatan Kemampuan Ilmiah (2023)</span><span class="t-en">Scientific Skill Up (2023)</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>ID Kredensial: 050/SRTF/SKILL UP KEILMIAHAN/HCD/BEM FT-SPK/III/2023</span><span class="t-en">BEM FT-SPK ITS<br>Credential ID: 050/SRTF/SKILL UP KEILMIAHAN/HCD/BEM FT-SPK/III/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1891,6 +1986,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Karya Tulis Ilmiah (PKTI)</span><span class="t-en">Scientific Writing Training (PKTI)</span></h3>
+          <p><span class="t-id">Badan Eksekutif Mahasiswa Institut Teknologi Sepuluh Nopember (BEM ITS)<br>ID Kredensial: 4225/SRTF/PKTITD/RISTEK/BEM-ITS/XII/2022</span><span class="t-en">Student Executive Board of Institut Teknologi Sepuluh Nopember (BEM ITS)<br>Credential ID: 4225/SRTF/PKTITD/RISTEK/BEM-ITS/XII/2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1898,6 +1994,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Keterampilan Mahasiswa Wirausaha (LKMW)</span><span class="t-en">Basic Entrepreneurial Skills (LKMW)</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember (ITS)<br>ID Kredensial: 7538/IT2.1.3/B/DL.07.00/2022</span><span class="t-en">Institut Teknologi Sepuluh Nopember (ITS)<br>Credential ID: 7538/IT2.1.3/B/DL.07.00/2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1905,6 +2002,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Kewirausahaan (2023)</span><span class="t-en">Entrepreneurship Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 072/SERTIF/PELATIHAN KWU/KEWIRAUSAHAAN/HIMAGE-ITS/V/2023</span><span class="t-en">Geomatics Student Association<br>Credential ID: 072/SERTIF/PELATIHAN KWU/KEWIRAUSAHAAN/HIMAGE-ITS/V/2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1912,6 +2010,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Kewirausahaan (2024)</span><span class="t-en">Entrepreneurship Training (2024)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2024<br>ID Kredensial: 001/SERTIF/PELATIHAN KWU/ENTREPRENEURSHIP/HIMAGE-ITS/V/2024</span><span class="t-en">Geomatics Student Association<br>Issued May 2024<br>Credential ID: 001/SERTIF/PELATIHAN KWU/ENTREPRENEURSHIP/HIMAGE-ITS/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1919,6 +2018,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan RSKO (2023)</span><span class="t-en">RSKO Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>ID Kredensial: 040/SERTIF/RSKO/PSDM-L/HIMAGE-ITS/IX/2013</span><span class="t-en">Geomatics Student Association<br>Credential ID: 040/SERTIF/RSKO/PSDM-L/HIMAGE-ITS/IX/2013</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1926,6 +2026,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Sekolah Pengembangan Mahasiswa</span><span class="t-en">Student Development School</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan September 2023</span><span class="t-en">Geomatics Student Association<br>Issued September 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1933,6 +2034,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Spasial (2023)</span><span class="t-en">Spatial Training (2023)</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2023</span><span class="t-en">Geomatics Student Association<br>Issued May 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="training">
@@ -1940,6 +2042,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Pengembangan Kapasitas &amp; Keterampilan</span><span class="t-en">Capacity Development &amp; Skills</span></span>
           <h3><span class="t-id">Pelatihan Spiritual &amp; Kebangsaan</span><span class="t-en">Spiritual &amp; National Insight Training</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan Agustus 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued August 2022</span></p>
         </div>
       </div>
 
@@ -1949,6 +2052,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Kuliah Tamu</span><span class="t-en">Guest Lecture</span></span>
           <h3><span class="t-id">Kuliah Tamu Menteri Transmigrasi</span><span class="t-en">Guest Lecture by the Minister of Transmigration</span></h3>
+          <p><span class="t-id">Kementerian Transmigrasi Indonesia<br>Diterbitkan Juni 2025</span><span class="t-en">Ministry of Transmigration of Indonesia<br>Issued June 2025</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1956,6 +2060,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Jalur Karier ITS (2023)</span><span class="t-en">ITS Career Path (2023)</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan September 2023</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued September 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1963,6 +2068,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Parade Civplan</span><span class="t-en">Civplan Parade</span></h3>
+          <p><span class="t-id">Fakultas Teknik Sipil, Perencanaan, dan Kebumian<br>Diterbitkan Mei 2026</span><span class="t-en">Faculty of Civil, Planning, and Geo Engineering<br>Issued May 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1970,6 +2076,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Georama: Pemodelan Pipa 3D</span><span class="t-en">Georama: 3D Pipeline Modeling</span></h3>
+          <p><span class="t-id">Georama Karya Indonesia<br>Diterbitkan Juli 2024</span><span class="t-en">Georama Karya Indonesia<br>Issued July 2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1977,6 +2084,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Pola Pikir Berkembang &amp; Mentalitas</span><span class="t-en">Growth Mindset &amp; Strong Mentality</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1984,6 +2092,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Keterampilan Kewirausahaan</span><span class="t-en">Entrepreneurial Skills</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1991,6 +2100,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Pelatihan Karier Geodet</span><span class="t-en">Geodet Career Training</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Mei 2023</span><span class="t-en">Geomatics Student Association<br>Issued May 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="webinar">
@@ -1998,6 +2108,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Webinar</span><span class="t-en">Webinar</span></span>
           <h3><span class="t-id">Mengubah Stres Menjadi Kreativitas</span><span class="t-en">Turning Stress Into Creativity</span></h3>
+          <p><span class="t-id">Institut Teknologi Sepuluh Nopember<br>Diterbitkan November 2022</span><span class="t-en">Sepuluh Nopember Institute of Technology<br>Issued November 2022</span></p>
         </div>
       </div>
 
@@ -2007,6 +2118,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Organisasi</span><span class="t-en">Organization</span></span>
           <h3><span class="t-id">Komisi Legislasi BPM</span><span class="t-en">BPM Legislative Commission</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Januari 2026</span><span class="t-en">Geomatics Student Association<br>Issued January 2026</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2014,6 +2126,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Organisasi</span><span class="t-en">Organization</span></span>
           <h3><span class="t-id">Anggota IBC (2022)</span><span class="t-en">IBC Member (2022)</span></h3>
+          <p><span class="t-id">IBC Institut Teknologi Sepuluh Nopember<br>Diterbitkan Desember 2022</span><span class="t-en">IBC, Sepuluh Nopember Institute of Technology<br>Issued December 2022</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2021,6 +2134,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Kepanitiaan</span><span class="t-en">Committee</span></span>
           <h3><span class="t-id">Staf Dana Usaha, Geosentric 2023</span><span class="t-en">Fundraising Staff, Geosentric 2023</span></h3>
+          <p><span class="t-id">Himpunan Mahasiswa Geomatika<br>Diterbitkan Desember 2023</span><span class="t-en">Geomatics Student Association<br>Issued December 2023</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="org">
@@ -2028,6 +2142,7 @@
         <div class="doc-body">
           <span class="doc-category cat-org"><span class="t-id">Kepanitiaan</span><span class="t-en">Committee</span></span>
           <h3><span class="t-id">Staf Keamanan &amp; Perizinan, Civplan</span><span class="t-en">Security &amp; Permits Staff, Civplan</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>Diterbitkan Juli 2024</span><span class="t-en">BEM FT-SPK ITS<br>Issued July 2024</span></p>
         </div>
       </div>
 
@@ -2037,6 +2152,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Kompetisi</span><span class="t-en">Competition</span></span>
           <h3><span class="t-id">Innovation Engineering for Society</span><span class="t-en">Innovation Engineering for Society</span></h3>
+          <p><span class="t-id">BEM FT-SPK ITS<br>Diterbitkan Maret 2024<br>ID Kredensial: 083/SRTF/IEFS 2024/HCD/BEM FT-SPK/III/2024</span><span class="t-en">BEM FT-SPK ITS<br>Issued March 2024<br>Credential ID: 083/SRTF/IEFS 2024/HCD/BEM FT-SPK/III/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2044,6 +2160,7 @@
         <div class="doc-body">
           <span class="doc-category cat-ta"><span class="t-id">Kompetisi</span><span class="t-en">Competition</span></span>
           <h3><span class="t-id">Kreasi Publik (2024)</span><span class="t-en">Kreasi Publik (2024)</span></h3>
+          <p><span class="t-id">HUMANISTIK FIA UB<br>ID Kredensial: 008/S.F.16/HUMANISTIK/V/2024</span><span class="t-en">HUMANISTIK, Faculty of Administrative Sciences, University of Brawijaya<br>Credential ID: 008/S.F.16/HUMANISTIK/V/2024</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2051,6 +2168,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Bahasa</span><span class="t-en">Language</span></span>
           <h3><span class="t-id">Prediksi TOEFL ITP (Skor: 557)</span><span class="t-en">TOEFL ITP Prediction (Score: 557)</span></h3>
+          <p><span class="t-id">Kingdom English Course Malang<br>Masa Berlaku Februari 2026 - Februari 2028</span><span class="t-en">Kingdom English Course Malang<br>Validity Period February 2026 - February 2028</span></p>
         </div>
       </div>
       <div class="doc-card animate-in" data-cat="lainnya">
@@ -2058,6 +2176,7 @@
         <div class="doc-body">
           <span class="doc-category cat-fieldwork"><span class="t-id">Bahasa</span><span class="t-en">Language</span></span>
           <h3><span class="t-id">Sertifikasi DynED Neo &times; Bahasa ITS</span><span class="t-en">DynED Neo &times; Bahasa ITS Certification</span></h3>
+          <p><span class="t-id">DynEd International<br>Diterbitkan Maret 2026<br>ID Kredensial: n-3v-lmn0-cdeg-10</span><span class="t-en">DynEd International<br>Issued March 2026<br>Credential ID: n-3v-lmn0-cdeg-10</span></p>
         </div>
       </div>
 
@@ -2110,9 +2229,14 @@
           <div class="divider"></div>
           <p class="section-sub" style="margin-bottom: 2.5rem;"><span class="t-id">Terbuka untuk diskusi proyek geospasial, kolaborasi riset, atau peluang kerja di bidang geomatika, remote sensing, dan GIS.</span><span class="t-en">Open to discussing geospatial projects, research collaboration, or work opportunities in geomatics, remote sensing, and GIS.</span></p>
           
-          <a id="cv-download-link-contact" href="files/CV Abdullah Rachmat Sugi (ID).pdf" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
-            📄 <span class="t-id">Unduh CV Lengkap</span><span class="t-en">Download Resume</span>
-          </a>
+          <div class="hero-actions" style="margin-top: 0; gap: 12px;">
+            <a id="cv-download-link-contact" href="files/CV Abdullah Rachmat Sugi (ID).pdf" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+              📄 <span class="t-id">Unduh CV Lengkap</span><span class="t-en">Download Resume</span>
+            </a>
+            <a href="files/Portofolio Abdullah Rachmat Sugi.pdf" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+              📄 <span class="t-id">Unduh Portofolio</span><span class="t-en">Download Portfolio</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2125,6 +2249,10 @@
           <div class="contact-icon">💼</div>
           <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val">linkedin.com/in/rachmatsugi</div></div>
         </a>
+        <a href="https://its.id/m/portofolio-rachmat-canva" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon">🎨</div>
+          <div><div class="contact-item-label">Canva Portfolio</div><div class="contact-item-val">its.id/m/portofolio-rachmat-canva</div></div>
+        </a>
         <a href="#" class="contact-item">
           <div class="contact-icon">📍</div>
           <div><div class="contact-item-label"><span class="t-id">Lokasi</span><span class="t-en">Location</span></div><div class="contact-item-val">Surabaya, <span class="t-id">Jawa Timur</span><span class="t-en">East Java</span></div></div>
@@ -2136,7 +2264,7 @@
 </section>
 
 <footer>
-  <p>© 2026 <span>Abdullah Rachmat Sugi</span> | NRP 5016221064 | <span class="t-id">Teknik Geomatika ITS</span><span class="t-en">Geomatics Engineering, ITS</span></p>
+  <p>© 2026 <span>Abdullah Rachmat Sugi</span> | <span class="t-id">Teknik Geomatika ITS</span><span class="t-en">Geomatics Engineering, ITS</span></p>
   <p style="font-size:11px; color:rgba(255,255,255,0.14);">07°16'47.8"S 112°47'41.7"E</p>
 </footer>
 
@@ -2146,14 +2274,68 @@
   <button class="modal-nav modal-next" aria-label="Berikutnya">&#8250;</button>
   <div class="modal-inner">
     <div class="modal-img-wrapper">
-      <img class="modal-content" id="expanded-img" alt="">
+      <img class="modal-content" id="expanded-img" alt="" decoding="async" fetchpriority="high">
     </div>
     <div id="modal-caption"></div>
     <div id="modal-watermark">© Abdullah Rachmat Sugi | ARS Geomatics</div>
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = window.Lenis ? new Lenis({ autoRaf: false, anchors: true }) : null;
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const splitHeadingIntoWords = heading => {
+    const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) {
+      if (walker.currentNode.textContent.trim()) textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          fragment.appendChild(document.createTextNode(part));
+          return;
+        }
+
+        const word = document.createElement('span');
+        word.className = 'word-reveal-word';
+        word.textContent = part;
+        fragment.appendChild(word);
+      });
+      node.replaceWith(fragment);
+    });
+  };
+
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(splitHeadingIntoWords);
+  if (!reducedMotion) {
+    sectionTitles.forEach(heading => {
+      const words = heading.querySelectorAll('.word-reveal-word');
+      gsap.fromTo(words, { opacity: 0, y: 22 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.55,
+        stagger: 0.065,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: heading, start: 'top 84%', once: true }
+      });
+    });
+  }
+
   /* ── INTRO LOADER: sapaan multi-bahasa ─────────────────────────────── */
   (function () {
     const overlay = document.getElementById('intro-loader');
@@ -2444,9 +2626,9 @@
   let currentCertCat   = 'all';
   let currentCertLimit = 3;
 
-  // 1. Identifikasi kartu yang ingin di-pin di posisi teratas berdasarkan judulnya
-  const pinnedPrimary = certCards.find(c => c.innerHTML.includes('PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK'));
-  const pinned2 = certCards.find(c => c.innerHTML.includes('Magang BPN Kota Batu'));
+  // 1. Identifikasi tiga kartu yang ingin di-pin di posisi teratas
+  const pinnedPrimary = certCards.find(c => c.innerHTML.includes('Lisensi Remote Pilot Certificate (RPC)'));
+  const pinned2 = certCards.find(c => c.innerHTML.includes('PELATIHAN REMOTE PILOT RATING SISTEM PESAWAT UDARA KECIL TANPA AWAK'));
   const pinned3 = certCards.find(c => c.innerHTML.includes('Pelatihan Drone PVIA'));
 
   // 2. Pisahkan sisa kartu yang tidak di-pin ke dalam array baru
@@ -2541,16 +2723,19 @@
     containers.forEach(container => {
       const card = container.closest('.map-card, .model3d-card, .gee-card, .project-card, .doc-card');
       const img = container.querySelector('img');
+      const imageSrc = img && (img.dataset.fullSrc || img.currentSrc || img.src);
       
       // Cek apakah kartu disembunyikan oleh filter tab
       const isCardHidden = card && card.style.display === 'none';
       
       // Jika ada gambar DAN kartunya tidak sedang disembunyikan
-      if (img && !isCardHidden && img.src && !img.src.endsWith('#')) {
+      if (img && !isCardHidden && imageSrc && !imageSrc.endsWith('#')) {
         const titleEl = card ? card.querySelector('h3') : null;
-        const captionContent = titleEl ? titleEl.innerHTML.replace(/>\s+</g, '><').trim() : (img.alt || 'Portofolio');
+        const lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'id';
+        const localizedCaption = img.dataset[`caption${lang === 'en' ? 'En' : 'Id'}`];
+        const captionContent = localizedCaption || (titleEl ? titleEl.innerHTML.replace(/>\s+</g, '><').trim() : (img.alt || 'Portofolio'));
         
-        galleryImgs.push({ src: img.src, caption: captionContent });
+        galleryImgs.push({ src: imageSrc, caption: captionContent });
       }
     });
   }
@@ -2586,9 +2771,10 @@
       container.style.cursor = 'zoom-in';
       container.addEventListener('click', () => {
         const img = container.querySelector('img');
-        if (img && img.style.display !== 'none' && img.src && !img.src.endsWith('#')) {
+        const imageSrc = img && (img.dataset.fullSrc || img.currentSrc || img.src);
+        if (img && img.style.display !== 'none' && imageSrc && !imageSrc.endsWith('#')) {
           collectImages();
-          const idx = galleryImgs.findIndex(g => g.src === img.src);
+          const idx = galleryImgs.findIndex(g => g.src === imageSrc);
           openModal(idx >= 0 ? idx : 0);
         }
       });
@@ -2651,6 +2837,31 @@
     });
 })();
 
+</script>
+<script type="module">
+  import { animate, hover, inView } from 'https://cdn.jsdelivr.net/npm/motion@12.23.24/+esm';
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = document.querySelectorAll(
+    '.map-card, .model3d-card, .project-card, .gee-card, .doc-card, .edu-card, .cert-card'
+  );
+
+  cards.forEach((card, index) => {
+    if (reducedMotion) return;
+
+    inView(card, () => {
+      animate(card, { opacity: [0, 1], y: [26, 0] }, {
+        duration: 0.65,
+        delay: (index % 4) * 0.07,
+        ease: [0.22, 1, 0.36, 1]
+      });
+    }, { margin: '0px 0px -48px 0px' });
+
+    hover(card, () => {
+      animate(card, { y: -7, scale: 1.015 }, { duration: 0.22, ease: 'easeOut' });
+      return () => animate(card, { y: 0, scale: 1 }, { duration: 0.28, ease: 'easeOut' });
+    });
+  });
 </script>
 </body>
 </html>
