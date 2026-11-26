@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id" data-theme="light" data-lang="id">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,7 +181,7 @@
   .nav-logo span { color: var(--legend-pink); }
 
   .menu-toggle { 
-    display: none; flex-direction: column; cursor: pointer; gap: 5px; 
+    display: none; flex-direction: column; cursor: pointer; gap: 5px; border: 0; background: transparent;
     padding: 4px; margin-left: auto; align-items: flex-end; 
   }
   
@@ -481,6 +481,71 @@
   .tab-btn:not(.active) .tab-count { background: var(--bg-alt); color: var(--text-muted); }
 
   .carto-count-label { font-size: 12px; color: var(--text-muted); margin-bottom: 1.6rem; letter-spacing: 0.02em; opacity: 0.7; }
+  .carto-search { position: relative; max-width: 460px; margin: 0 0 1.25rem; }
+  .carto-search label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+  .carto-search input {
+    width: 100%; min-height: 46px; padding: 10px 14px 10px 42px; border: 1px solid var(--border);
+    border-radius: 12px; background: var(--white); color: var(--text); font: inherit; font-size: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .carto-search input:focus-visible { outline: 3px solid rgba(47,111,237,0.28); border-color: var(--legend-blue); }
+  .carto-search::before {
+    content: ''; position: absolute; left: 14px; top: 34px; width: 12px; height: 12px;
+    border: 2px solid var(--text-muted); border-radius: 50%; pointer-events: none;
+  }
+  .carto-search::after {
+    content: ''; position: absolute; left: 26px; top: 46px; width: 7px; height: 2px;
+    background: var(--text-muted); transform: rotate(45deg); transform-origin: left center; pointer-events: none;
+  }
+  .map-card { display: flex; flex-direction: column; min-width: 0; }
+  .map-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+  .case-study-trigger {
+    margin-top: 12px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 9px;
+    background: transparent; color: var(--navy-light); font: inherit; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: var(--transition);
+  }
+  .case-study-trigger:hover, .case-study-trigger:focus-visible {
+    border-color: var(--legend-blue); background: rgba(47,111,237,0.08); color: var(--navy-deep);
+  }
+  .case-study-trigger:focus-visible, .carto-search input:focus-visible, .menu-toggle:focus-visible,
+  .case-study-dialog button:focus-visible, .case-study-dialog a:focus-visible {
+    outline: 3px solid rgba(47,111,237,0.4); outline-offset: 3px;
+  }
+  html[data-theme="dark"] .case-study-trigger { color: #a9c8f2; }
+  html[data-theme="dark"] .case-study-trigger:hover,
+  html[data-theme="dark"] .case-study-trigger:focus-visible { color: #fff; }
+  .map-thumb:focus-visible { outline: 3px solid var(--legend-blue); outline-offset: 3px; z-index: 3; }
+  .carto-empty-state {
+    padding: 2rem; border: 1px dashed var(--border); border-radius: var(--radius-lg);
+    color: var(--text-muted); text-align: center;
+  }
+  .case-study-dialog {
+    width: min(680px, calc(100% - 28px)); max-height: min(84vh, 760px); margin: auto; padding: 0;
+    overflow: auto; border: 1px solid var(--border); border-radius: 20px; background: var(--white);
+    color: var(--text); box-shadow: var(--shadow-lg);
+  }
+  .case-study-dialog::backdrop { background: rgba(4,13,26,0.72); backdrop-filter: blur(5px); }
+  .case-study-content { padding: clamp(1.25rem, 4vw, 2rem); }
+  .case-study-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .case-study-header h2 { margin: 0.4rem 0 1.2rem; color: var(--navy-deep); font: 700 clamp(1.35rem, 4vw, 1.8rem)/1.3 var(--font-display); }
+  html[data-theme="dark"] .case-study-header h2 { color: #f2f6fc; }
+  .case-study-close {
+    flex: 0 0 42px; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 50%;
+    background: var(--bg); color: var(--text); font-size: 24px; line-height: 1; cursor: pointer;
+  }
+  .case-study-summary { margin: 0 0 1.25rem; color: var(--text-muted); line-height: 1.75; }
+  .case-study-details { display: grid; gap: 12px; }
+  .case-study-details section { min-width: 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); }
+  .case-study-details h3 { margin: 0 0 5px; color: var(--navy-light); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .case-study-details p { margin: 0; color: var(--text); font-size: 13px; line-height: 1.65; }
+  .case-study-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.25rem; }
+  .case-study-actions button, .case-study-actions a {
+    min-height: 42px; display: inline-flex; align-items: center; justify-content: center;
+    padding: 9px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--navy-deep);
+    color: #fff; font: inherit; font-size: 12px; font-weight: 700; text-decoration: none; cursor: pointer;
+  }
+  .case-study-actions a { background: transparent; color: var(--navy-deep); }
+  html[data-theme="dark"] .case-study-actions a { color: #dce8f8; }
   .map-grid, .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
   .map-card, .doc-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow-sm); }
   .map-card:hover, .doc-card:hover { box-shadow: var(--shadow-lg); border-color: #bdd0e2; }
@@ -564,12 +629,13 @@
   .gee-preview-icon { font-size: 2.5rem; opacity: 0.2; z-index: 2; }
   .gee-body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
   .gee-card-header { display: flex; align-items: flex-start; gap: 12px; }
+  .gee-card-header > div { min-width: 0; }
   .gee-icon {
     width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; background: linear-gradient(135deg, #1A6B3A 0%, #2E9E5A 100%);
     display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 3px 10px rgba(26,107,58,0.4);
   }
   .gee-card h3 { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 2px; }
-  .gee-card-id { font-size: 10.5px; color: rgba(255,255,255,0.28); font-family: 'Courier New', monospace; letter-spacing: 0.01em; }
+  .gee-card-id { font-size: 10.5px; color: rgba(255,255,255,0.55); font-family: 'Courier New', monospace; letter-spacing: 0.01em; overflow-wrap: anywhere; }
   .gee-card p  { font-size: 12.5px; color: rgba(255,255,255,0.45); line-height: 1.7; flex: 1; }
   .gee-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .gee-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: rgba(46,158,90,0.12); color: #5FCA8A; border: 1px solid rgba(46,158,90,0.22); }
@@ -751,11 +817,33 @@
     .tab-row { gap: 6px; }
     .tab-btn { font-size: 12px; padding: 7px 13px; }
     .map-grid, .doc-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .carto-search { max-width: none; }
+    .carto-empty-state { padding: 1.5rem 1rem; }
+    .case-study-actions > * { flex: 1 1 100%; }
     .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-photo-col { display: none; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
     .modal-nav { display: none; }
     .nav-utils { margin-left: 0; }
+  }
+  @media (max-width: 480px) {
+    .map-grid, .doc-grid, .gee-grid, .project-grid { grid-template-columns: minmax(0, 1fr); }
+    .gee-card, .project-card { min-width: 0; }
+    #contact .section-inner { padding-right: 1rem; padding-left: 1rem; }
+    .tab-row { overflow-x: auto; flex-wrap: nowrap; padding: 2px 2px 10px; }
+    .tab-btn { flex: 0 0 auto; }
+    .hero-actions .btn-hero-primary, .hero-actions .btn-hero-secondary { width: 100%; justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .case-study-trigger, .carto-search input { transition: none; }
+    .map-card:hover .map-thumb img { transform: none; }
   }
 
   /* ══════════════════════════════════════════════════════════════
@@ -949,7 +1037,7 @@
 <div id="intro-loader">
   <span class="intro-eyebrow">07°16'47.8"S 112°47'41.7"E</span>
   <span class="intro-word" id="intro-word">Halo</span>
-  <div class="intro-bar-track"><div class="intro-bar-fill" id="intro-bar"></div></div>
+  <div class="intro-bar-track"><div class="intro-bar-fill" id="intro-bar"></div>  </div>
   <span class="intro-coords" id="intro-caption">memuat portofolio…</span>
 </div>
 
@@ -970,7 +1058,7 @@
     <li><a href="#dokumentasi"><span class="nav-ico">📸</span><span class="t-id">Dokumentasi</span><span class="t-en">Docs</span></a></li>
     <li><a href="#contact"><span class="nav-ico">✉️</span><span class="t-id">Kontak</span><span class="t-en">Contact</span></a></li>
   </ul>
-  <div class="menu-toggle" id="mobile-menu" aria-label="Toggle menu">
+  <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-list">
     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
   </div>
   <div class="nav-utils">
@@ -1359,16 +1447,20 @@
       </p>
     </div>
 
-    <div class="tab-row" id="carto-tabs">
-      <button class="tab-btn active" data-cat="all"><span class="t-id">Semua Peta</span><span class="t-en">All Maps</span> <span class="tab-count">28</span></button>
-      <button class="tab-btn" data-cat="gis">GIS &amp; Spatial Analysis <span class="tab-count">9</span></button>
-      <button class="tab-btn" data-cat="env"><span class="t-id">Lingkungan &amp; Bencana</span><span class="t-en">Environment &amp; Disaster</span> <span class="tab-count">9</span></button>
-      <button class="tab-btn" data-cat="cadastral"><span class="t-id">Kadastral &amp; Perencanaan</span><span class="t-en">Cadastral &amp; Planning</span> <span class="tab-count">4</span></button>
-      <button class="tab-btn" data-cat="geodesy"><span class="t-id">Survei, Topo &amp; Hidrografi</span><span class="t-en">Survey, Topo &amp; Hydrography</span> <span class="tab-count">6</span></button>
+    <div class="tab-row" id="carto-tabs" role="group" aria-label="Filter kategori peta">
+      <button type="button" class="tab-btn active" data-cat="all" aria-pressed="true"><span class="t-id">Semua Peta</span><span class="t-en">All Maps</span> <span class="tab-count">28</span></button>
+      <button type="button" class="tab-btn" data-cat="gis" aria-pressed="false">GIS &amp; Spatial Analysis <span class="tab-count">9</span></button>
+      <button type="button" class="tab-btn" data-cat="env" aria-pressed="false"><span class="t-id">Lingkungan &amp; Bencana</span><span class="t-en">Environment &amp; Disaster</span> <span class="tab-count">9</span></button>
+      <button type="button" class="tab-btn" data-cat="cadastral" aria-pressed="false"><span class="t-id">Kadastral &amp; Perencanaan</span><span class="t-en">Cadastral &amp; Planning</span> <span class="tab-count">4</span></button>
+      <button type="button" class="tab-btn" data-cat="geodesy" aria-pressed="false"><span class="t-id">Survei, Topo &amp; Hidrografi</span><span class="t-en">Survey, Topo &amp; Hydrography</span> <span class="tab-count">6</span></button>
     </div>
-    <p class="carto-count-label" id="carto-count"></p>
+    <div class="carto-search">
+      <label for="map-search"><span class="t-id">Cari berdasarkan judul, metode, atau data</span><span class="t-en">Search by title, method, or data</span></label>
+      <input id="map-search" type="search" autocomplete="off" aria-controls="map-grid" placeholder="Cari peta atau metode…" data-placeholder-id="Cari peta atau metode…" data-placeholder-en="Search maps or methods…">
+    </div>
+    <p class="carto-count-label" id="carto-count" aria-live="polite"></p>
 
-    <div class="map-grid" id="map-grid">
+    <div class="map-grid" id="map-grid" aria-label="Daftar proyek peta">
       
       <div class="map-card animate-in" data-cat="gis">
         <div class="map-thumb"><img src="images/map-thumbnails/Peta Klasifikasi Wilayah 2021.webp" data-full-src="images/Peta Klasifikasi Wilayah 2021.webp" alt="Peta Klasifikasi Wilayah 2021" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
@@ -1424,7 +1516,11 @@
         </div>
       </div>
 
-      <div class="map-card animate-in" data-cat="cadastral">
+      <div class="map-card animate-in" data-cat="cadastral"
+        data-method-id="Fotogrametri UAV dan terestrial; Agisoft Metashape (SfM/MVS); Gaussian Splatting."
+        data-method-en="UAV and terrestrial photogrammetry; Agisoft Metashape (SfM/MVS); Gaussian Splatting."
+        data-result-id="Studi Tugas Akhir tentang rekonstruksi 3D Candi Tikus di Trowulan. Galeri model 3D juga memuat rekonstruksi kondisi kering dan tergenang."
+        data-result-en="Final thesis study on 3D reconstruction of Candi Tikus in Trowulan. The 3D model gallery also presents dry and flooded-condition reconstructions.">
         <div class="map-thumb"><img src="images/map-thumbnails/Peta Lokasi Candi Tikus.webp" data-full-src="images/Peta Lokasi Candi Tikus.webp" alt="Peta Lokasi Situs Candi Tikus" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Peta Lokasi Penelitian Situs Candi Tikus</span><span class="t-en">Research Location Map, Candi Tikus Site</span></h3>
@@ -1460,7 +1556,11 @@
         </div>
       </div>
 
-      <div class="map-card animate-in" data-cat="cadastral">
+      <div class="map-card animate-in" data-cat="cadastral"
+        data-method-id="GNSS RTK EFIX; AutoCAD Civil 3D; ArcGIS Pro."
+        data-method-en="EFIX GNSS RTK; AutoCAD Civil 3D; ArcGIS Pro."
+        data-result-id="Dalam pengalaman di KAI Daop 7, survei mencakup sekitar 30 bidang di kawasan Stasiun Jombang dan Jl. Anggrek Madiun, serta menghasilkan 6 peta tematik dan 1 peta hasil pengukuran."
+        data-result-en="During the KAI Daop 7 internship, surveys covered approximately 30 parcels near Jombang Station and Jl. Anggrek, Madiun, producing 6 thematic maps and 1 survey map.">
         <div class="map-thumb"><img src="images/map-thumbnails/Peta Aset Daop 7 Madiun Jl. Anggrek.webp" data-full-src="images/Peta Aset Daop 7 Madiun Jl. Anggrek.webp" alt="Bidang Aset Kawasan Jl. Anggrek KAI" loading="lazy" decoding="async" fetchpriority="low" onerror="this.style.display='none'"><div class="map-thumb-icon">🗺️</div></div>
         <div class="map-body">
           <h3><span class="t-id">Bidang Aset Kawasan Jl. Anggrek Milik PT KAI</span><span class="t-en">Asset Parcels, Jl. Anggrek Area Owned by PT KAI</span></h3>
@@ -1609,6 +1709,10 @@
 
     </div>
 
+    <p id="carto-empty-state" class="carto-empty-state" role="status" hidden>
+      <span class="t-id">Tidak ada proyek yang cocok. Coba kata kunci atau kategori lain.</span>
+      <span class="t-en">No matching projects. Try another search term or category.</span>
+    </p>
     <div id="load-more-container">
       <button id="btn-load-more" class="tab-btn"><span class="t-id">Lihat Lebih Banyak ↓</span><span class="t-en">Load More ↓</span></button>
     </div>
@@ -2230,6 +2334,9 @@
           <p class="section-sub" style="margin-bottom: 2.5rem;"><span class="t-id">Terbuka untuk diskusi proyek geospasial, kolaborasi riset, atau peluang kerja di bidang geomatika, remote sensing, dan GIS.</span><span class="t-en">Open to discussing geospatial projects, research collaboration, or work opportunities in geomatics, remote sensing, and GIS.</span></p>
           
           <div class="hero-actions" style="margin-top: 0; gap: 12px;">
+            <a href="mailto:rachmatsugi09@gmail.com?subject=Diskusi%20Peluang%20Geospasial" class="btn-hero-primary">
+              <span class="t-id">✉️ Email untuk Kolaborasi</span><span class="t-en">✉️ Email to Collaborate</span>
+            </a>
             <a id="cv-download-link-contact" href="files/CV Abdullah Rachmat Sugi (ID).pdf" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
               📄 <span class="t-id">Unduh CV Lengkap</span><span class="t-en">Download Resume</span>
             </a>
@@ -2253,10 +2360,10 @@
           <div class="contact-icon">🎨</div>
           <div><div class="contact-item-label">Canva Portfolio</div><div class="contact-item-val">its.id/m/portofolio-rachmat-canva</div></div>
         </a>
-        <a href="#" class="contact-item">
+        <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div><div class="contact-item-label"><span class="t-id">Lokasi</span><span class="t-en">Location</span></div><div class="contact-item-val">Surabaya, <span class="t-id">Jawa Timur</span><span class="t-en">East Java</span></div></div>
-        </a>
+        </div>
       </div>
 
     </div>
@@ -2267,6 +2374,27 @@
   <p>© 2026 <span>Abdullah Rachmat Sugi</span> | <span class="t-id">Teknik Geomatika ITS</span><span class="t-en">Geomatics Engineering, ITS</span></p>
   <p style="font-size:11px; color:rgba(255,255,255,0.14);">07°16'47.8"S 112°47'41.7"E</p>
 </footer>
+
+<dialog id="case-study-dialog" class="case-study-dialog" aria-labelledby="case-study-title">
+  <div class="case-study-content">
+    <div class="case-study-header">
+      <div>
+        <span class="section-tag"><span class="t-id">Studi Kasus</span><span class="t-en">Case Study</span></span>
+        <h2 id="case-study-title"></h2>
+      </div>
+      <button type="button" class="case-study-close" id="case-study-close" aria-label="Tutup detail proyek">&times;</button>
+    </div>
+    <p id="case-study-summary" class="case-study-summary"></p>
+    <div class="case-study-details">
+      <section><h3><span class="t-id">Metode, data &amp; tools</span><span class="t-en">Methods, data &amp; tools</span></h3><p id="case-study-method"></p></section>
+      <section><h3><span class="t-id">Produk / hasil terdokumentasi</span><span class="t-en">Documented output / result</span></h3><p id="case-study-result"></p></section>
+    </div>
+    <div class="case-study-actions">
+      <button type="button" id="case-study-view-image"><span class="t-id">Lihat peta resolusi penuh</span><span class="t-en">View full-resolution map</span></button>
+      <a href="mailto:rachmatsugi09@gmail.com?subject=Diskusi%20Proyek%20Geospasial"><span class="t-id">Diskusikan proyek</span><span class="t-en">Discuss a project</span></a>
+    </div>
+  </div>
+</dialog>
 
 <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-label="Preview gambar">
   <button class="close-modal" aria-label="Tutup">&times;</button>
@@ -2287,14 +2415,14 @@
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-  const lenis = window.Lenis ? new Lenis({ autoRaf: false, anchors: true }) : null;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lenis = !reducedMotion && window.Lenis ? new Lenis({ autoRaf: false, anchors: true }) : null;
   if (lenis) {
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(time => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
   }
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const splitHeadingIntoWords = heading => {
     const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
     const textNodes = [];
@@ -2407,6 +2535,8 @@
     document.documentElement.setAttribute('lang', lang);
     document.getElementById('lang-id-btn').classList.toggle('active', lang === 'id');
     document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-id-btn').setAttribute('aria-pressed', String(lang === 'id'));
+    document.getElementById('lang-en-btn').setAttribute('aria-pressed', String(lang === 'en'));
 
     const cvLink = document.getElementById('cv-download-link');
     const cvLinkContact = document.getElementById('cv-download-link-contact');
@@ -2415,10 +2545,14 @@
       : 'files/CV Abdullah Rachmat Sugi (ID).pdf';
     if (cvLink) cvLink.href = cvUrl;
     if (cvLinkContact) cvLinkContact.href = cvUrl;
+    if (mobileMenu) {
+      mobileMenu.setAttribute('aria-label', lang === 'en' ? 'Open navigation menu' : 'Buka menu navigasi');
+    }
 
     try { sessionStorage.setItem('ars_lang', lang); } catch (e) {}
     if (typeof updateMapGrid === 'function') updateMapGrid();
     if (typeof updateCertGrid === 'function') updateCertGrid();
+    if (activeStudyCard && caseStudyDialog.open) renderCaseStudy(activeStudyCard);
   }
 
   /* ── HERO ANIMATED GEODETIC NETWORK ──────────────────────────────────── */
@@ -2519,21 +2653,35 @@
     navbar.classList.toggle('scrolled', doc.scrollTop > 10);
   }, { passive: true });
 
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
 
   /* ── MOBILE MENU ──────────────────────────────────────────────────── */
   const mobileMenu = document.getElementById('mobile-menu');
   const navList    = document.getElementById('nav-list');
 
   mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navList.classList.toggle('active');
+    const isOpen = mobileMenu.getAttribute('aria-expanded') === 'true';
+    mobileMenu.setAttribute('aria-expanded', String(!isOpen));
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'id';
+    mobileMenu.setAttribute('aria-label', isOpen
+      ? (lang === 'en' ? 'Open navigation menu' : 'Buka menu navigasi')
+      : (lang === 'en' ? 'Close navigation menu' : 'Tutup menu navigasi'));
+    mobileMenu.classList.toggle('active', !isOpen);
+    navList.classList.toggle('active', !isOpen);
   });
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
       navList.classList.remove('active');
+      mobileMenu.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Open navigation menu' : 'Buka menu navigasi');
     });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileMenu.getAttribute('aria-expanded') === 'true') {
+      mobileMenu.click();
+      mobileMenu.focus();
+    }
   });
 
   /* ── ACTIVE NAV LINK ──────────────────────────────────────────────── */
@@ -2567,9 +2715,19 @@
   const countLabel  = document.getElementById('carto-count');
   const btnLoadMore = document.getElementById('btn-load-more');
   const loadMoreCon = document.getElementById('load-more-container');
+  const mapSearch   = document.getElementById('map-search');
+  const emptyState  = document.getElementById('carto-empty-state');
+  const caseStudyDialog = document.getElementById('case-study-dialog');
+  const caseStudyTitle = document.getElementById('case-study-title');
+  const caseStudySummary = document.getElementById('case-study-summary');
+  const caseStudyMethod = document.getElementById('case-study-method');
+  const caseStudyResult = document.getElementById('case-study-result');
+  const caseStudyClose = document.getElementById('case-study-close');
+  const caseStudyViewImage = document.getElementById('case-study-view-image');
 
   let currentCat   = 'all';
   let currentLimit = 6;
+  let activeStudyCard = null;
 
   const catNames = {
     id: {
@@ -2588,17 +2746,100 @@
     }
   };
 
+  function localizedText(element, lang) {
+    if (!element) return '';
+    const translated = element.querySelector(`.t-${lang}`);
+    return translated ? translated.textContent.trim() : element.textContent.trim();
+  }
+
+  function renderCaseStudy(card) {
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'id';
+    const title = localizedText(card.querySelector('h3'), lang);
+    const description = localizedText(card.querySelector('.map-body p'), lang);
+    const method = card.dataset[`method${lang === 'en' ? 'En' : 'Id'}`]
+      || card.querySelector('.map-chip')?.textContent.trim()
+      || (lang === 'en' ? 'See project map and description.' : 'Lihat peta dan deskripsi proyek.');
+    const result = card.dataset[`result${lang === 'en' ? 'En' : 'Id'}`]
+      || (lang === 'en'
+        ? `Map product shown in the portfolio: ${title}.`
+        : `Produk peta yang ditampilkan di portofolio: ${title}.`);
+
+    caseStudyTitle.textContent = title;
+    caseStudySummary.textContent = description;
+    caseStudyMethod.textContent = method;
+    caseStudyResult.textContent = result;
+  }
+
+  mapCards.forEach(card => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'case-study-trigger';
+    button.innerHTML = '<span class="t-id">Buka studi kasus →</span><span class="t-en">Open case study →</span>';
+    button.addEventListener('click', () => {
+      activeStudyCard = card;
+      renderCaseStudy(card);
+      caseStudyDialog.showModal();
+    });
+    card.querySelector('.map-body').appendChild(button);
+  });
+
+  caseStudyClose.addEventListener('click', () => caseStudyDialog.close());
+  caseStudyDialog.addEventListener('click', event => {
+    if (event.target === caseStudyDialog) caseStudyDialog.close();
+  });
+  caseStudyDialog.addEventListener('close', () => { activeStudyCard = null; });
+  caseStudyViewImage.addEventListener('click', () => {
+    if (!activeStudyCard) return;
+    const image = activeStudyCard.querySelector('.map-thumb img');
+    const imageSrc = image && (image.dataset.fullSrc || image.currentSrc || image.src);
+    caseStudyDialog.close();
+    if (!imageSrc) return;
+    collectImages();
+    const index = galleryImgs.findIndex(item => item.src === imageSrc);
+    if (index >= 0) openModal(index);
+  });
+
   function updateMapGrid() {
-    const filtered = mapCards.filter(c => currentCat === 'all' || c.dataset.cat === currentCat);
+    const query = mapSearch.value.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const filtered = mapCards.filter(card => {
+      const matchesCategory = currentCat === 'all' || card.dataset.cat === currentCat;
+      const searchableText = [
+        card.querySelector('h3')?.textContent,
+        card.querySelector('.map-body p')?.textContent,
+        card.querySelector('.map-chip')?.textContent,
+        card.querySelector('img')?.alt,
+        card.dataset.methodId,
+        card.dataset.methodEn,
+        card.dataset.resultId,
+        card.dataset.resultEn
+      ].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      return matchesCategory && (!query || searchableText.includes(query));
+    });
     mapCards.forEach(c => c.style.display = 'none');
     filtered.slice(0, currentLimit).forEach(c => { c.style.display = ''; });
     const shown = Math.min(currentLimit, filtered.length);
     const lang = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'id';
     const label = lang === 'en'
-      ? `Showing ${shown} of ${filtered.length} maps | ${catNames.en[currentCat] || currentCat}`
-      : `Menampilkan ${shown} dari ${filtered.length} peta | ${catNames.id[currentCat] || currentCat}`;
+      ? `Showing ${shown} of ${filtered.length} matching maps | ${catNames.en[currentCat] || currentCat}`
+      : `Menampilkan ${shown} dari ${filtered.length} peta yang cocok | ${catNames.id[currentCat] || currentCat}`;
     countLabel.textContent = label;
+    countLabel.hidden = filtered.length === 0;
+    emptyState.hidden = filtered.length !== 0;
     loadMoreCon.style.display = filtered.length > currentLimit ? 'block' : 'none';
+    mapSearch.placeholder = mapSearch.dataset[`placeholder${lang === 'en' ? 'En' : 'Id'}`];
+    document.getElementById('map-grid').setAttribute('aria-label',
+      lang === 'en' ? 'Map project list' : 'Daftar proyek peta');
+    document.getElementById('carto-tabs').setAttribute('aria-label',
+      lang === 'en' ? 'Map category filters' : 'Filter kategori peta');
+    cartoTabs.forEach(tab => tab.setAttribute('aria-pressed', String(tab.dataset.cat === currentCat)));
+
+    document.querySelectorAll('.map-thumb').forEach(container => {
+      const image = container.querySelector('img');
+      if (!image) return;
+      container.setAttribute('role', 'button');
+      container.setAttribute('tabindex', '0');
+      container.setAttribute('aria-label', lang === 'en' ? `Open full-size map: ${image.alt}` : `Buka peta ukuran penuh: ${image.alt}`);
+    });
   }
 
   cartoTabs.forEach(tab => {
@@ -2609,6 +2850,10 @@
       currentLimit = 6;
       updateMapGrid();
     });
+  });
+  mapSearch.addEventListener('input', () => {
+    currentLimit = 6;
+    updateMapGrid();
   });
   btnLoadMore.addEventListener('click', () => { currentLimit += 6; updateMapGrid(); });
   updateMapGrid();
@@ -2716,6 +2961,7 @@
 
   let galleryImgs  = [];
   let currentIndex = 0;
+  let modalReturnFocus = null;
 
   function collectImages() {
     const containers = document.querySelectorAll('.map-thumb, .model3d-thumb, .gee-preview, .project-preview, .doc-thumb');
@@ -2744,9 +2990,11 @@
     collectImages();
     if (!galleryImgs[index]) return;
     currentIndex = index;
+    modalReturnFocus = document.activeElement;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
     showImage(currentIndex);
+    closeBtn.focus();
   }
 
   function showImage(index) {
@@ -2762,6 +3010,8 @@
     modal.style.display = 'none';
     document.body.style.overflow = '';
     modalImg.src = '';
+    if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') modalReturnFocus.focus();
+    modalReturnFocus = null;
   }
 
   function attachLightbox() {
@@ -2778,6 +3028,14 @@
           openModal(idx >= 0 ? idx : 0);
         }
       });
+      if (container.classList.contains('map-thumb')) {
+        container.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            container.click();
+          }
+        });
+      }
     });
   }
   attachLightbox();
@@ -2793,6 +3051,19 @@
       if (e.key === 'Escape')    closeModal();
       if (e.key === 'ArrowLeft') showImage((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
       if (e.key === 'ArrowRight') showImage((currentIndex + 1) % galleryImgs.length);
+      if (e.key === 'Tab') {
+        const focusable = Array.from(modal.querySelectorAll('button:not([disabled])'))
+          .filter(button => getComputedStyle(button).display !== 'none');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
   });
 
